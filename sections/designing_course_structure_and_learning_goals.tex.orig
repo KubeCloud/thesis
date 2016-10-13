@@ -1,0 +1,69 @@
+%!TEX root = ../master.tex
+\chapter{Designing course structure and learning goals - DEADLINE: UGE 14 FIX}
+\input{sections/designing_course_structure_and_learning_goals/intro}
+\section{Learning goals}
+\subsection{Description of qualifications}
+The participants will after the course have insight into the possibilities with state-of-the-art microservice architecture and the elements involved in deploying containerized services in a Infrastructure as a Service platform. The course will focus on designing a microservice architecture based on the Spring Boot and Cloud frameworks, containerizing the services with Docker and deploying the containerized architecture into the Infrastructure as a Service platform, Kubernetes. Emphasis will be on designing distributed systems in regards to resilience and error handling. \\
+
+\noindent The participants must at the end of the course be able to: 
+\begin{itemize}
+  \item Judge and select appropriate strategies for handling perturbations in a distributed architecture
+  \item Design and construct a distributed microservice architecture, containerize and deploy the system in a Infrastructure as a Platform
+  \item Validate the distributed microservice architecture in relation to resilience
+  \item Explore and compare different anti-patterns in faults for distributed systems
+  \item Reflect upon the state-of-the-art microservice architecture compared to a monolithic architecture
+\end{itemize}
+
+
+
+
+
+\subsection{Contents}
+This course gives an overview of fundamental principles for distributed systems with a specific focus on resilience in a microservice architecture. Containerizing services will be presented and discussed throughout the course with a specific focus on Docker as the enabling technology. Infrastructure as a Service will be presented and used as the infrastructure for deploying containers. The course will give practical hands-on experience with running a microservice architecture in a Raspberry Pi Kubernetes cluster. Resilience will be presented and discussed and given practical experience by utilizing the power of a Raspberry Pi cluster by pulling network cables and ensuring that applications will be able to continue running. The DNS and Service Discovery part of the course will give an introduction to the fundamentals of DNS and how service discovery is an important tool when abstracting the underlying hardware with a cluster management tool such as Kubernetes. The underlying theme of this course is the process of designing and implementing a microservice architecture, using bleeding edge technology such as the Netflix Open Source tool stack, to the packaging and deployment of the implemented architecture to an Instrastruce as a Service platform.
+
+\section{Designing course structure}
+
+\begin{table}[]
+\centering
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}l |l|}
+\hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{W1: Introduction, Raspberry Pi clusters, Spring Boot \& Cloud}} \\ \hline
+\textbf{Description}                                                   & Introdution                                 \\ \hline
+\textbf{Materials}                                                     &                                             \\ \hline
+\textbf{Exercises}                                                     &                                             \\ \hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{W2: Docker}}                                                    \\ \hline
+{\color[HTML]{000000} \textbf{Description}}                            & Docker                                      \\ \hline
+\textbf{Materials}                                                     &                                             \\ \hline
+\textbf{Exercises}                                                     &                                             \\ \hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{W3: Kubernetes}}                                                \\ \hline
+\textbf{Description}                                                   & Kubernetes                                  \\ \hline
+\textbf{Materials}                                                     &                                             \\ \hline
+\textbf{Exercises}                                                     &                                             \\ \hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{W4: Resilience \& Load testing}}                                \\ \hline
+\textbf{Description}                                                   & Resilience                                  \\ \hline
+\textbf{Materials}                                                     &                                             \\ \hline
+\textbf{Exercises}                                                     &                                             \\ \hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{W5: Project work}}                                              \\ \hline
+\textbf{Description}                                                   & Project work                                \\ \hline
+\textbf{Materials}                                                     &                                             \\ \hline
+\textbf{Exercises}                                                     &                                             \\ \hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{W6: DNS}}                                                       \\ \hline
+\textbf{Description}                                                   & DNS                                         \\ \hline
+\textbf{Materials}                                                     &                                             \\ \hline
+\textbf{Exercises}                                                     &                                             \\ \hline
+\multicolumn{2}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{W7: Service Discovery}}                                         \\ \hline
+\textbf{Description}                                                   & Service Discovery                           \\ \hline
+\textbf{Materials}                                                     &                                             \\ \hline
+\textbf{Exercises}                                                     &                                             \\ \hline
+\end{tabular}
+\caption{My caption}
+\label{my-label}
+\end{table}
+
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
+\section{Creating tangible exercises}

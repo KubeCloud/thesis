@@ -1,0 +1,135 @@
+%!TEX root = ../../master.tex
+\section{Chapter 14: Resilience Benchmarking, Vieira, Madeira}
+
+\begin{itemize}
+  \item Benchmarks are standard tools that allow evaluating and comparing different systems or components according to specific characteristics such as performance, dependability, and security.
+  \item Grays \textit{The Benchmark Handbook} discusses the need for domain specific benchmarks and has to fulfill
+  \begin{itemize}
+  	\item \textbf{Relevance:} The benchmark result has to measure the performance of the typical problem within the problem domain. 
+  	\item \textbf{Portability:} It should be easy to implement on many different systems and architectures
+  	\item \textbf{Scalability:} It should be scalable to cover small and large systems
+  	\item \textbf{Simplicity:} The benchmark should be understandable to avoid lack of credibility. 
+  \end{itemize}
+  \item Five key criterias of a 'good' benchmark
+  \begin{itemize}
+  	\item \textbf{Relevance:} The benchmark has to reflect something important
+  	\item \textbf{Repeatable:} The benchmark result can be reproduced by rerunning the benchmark under similar conditions with the same result
+  	\item \textbf{Fair \& Portable:} All systems compared can participate equally (e.g. portability, 'fair' design)
+  	\item \textbf{Verifiable:} There has to be confidence that documented results are real. This can e.g. be assured by reviewing results by external auditors
+  	\item \textbf{Economical:} The cost of running the benchmark should be affordable. 
+  \end{itemize}
+  \item Resilience encompasses all attributes of the quality of 'working well in a changing world that includes faults, failures, errors and attacks'. 
+  \item This way, resilience benchmarking merges concepts from performance, dependability, and security benchmarking.
+  \item In practice, resilience benchmarking faces challenges related to the integration of these three concepts and to the adaptive characteristics of the systems under benchmarking.
+\end{itemize}
+
+\textbf{Performance benchmarking}
+\begin{itemize}
+  \item In general, a performance benchmark must fulfill the following fundamental requirements to be useful and reliable
+  \begin{itemize}
+  	\item It must be based on a workload \textit{representative} of real-world applications
+  	\item It must \textit{exercise all critical services} provided by platforms
+  	\item It must \textit{not be tuned/optimized for a specific product}
+  	\item It must generate \textit{reproducible} results
+  	\item It must not have any inherent \textit{scalability} limitations  
+  \end{itemize}
+  \item The major goal of a performance benchmark is to provide a standard workload and metrics for measuring and evaluating the performance and scalability of a certain platform.
+  \item The workload must be designed to meet a number of \textit{workload requirements} that can be grouped in five categories
+  \begin{itemize}
+  	\item \textit{\textbf{Representativeness}}
+  	\begin{itemize}
+  		\item The most important requirement for a benchmark is that it is based on a representative workload scenario including representative set of interactions.
+  		\item The goal is to allow users to relate the observed behavior to their own applications and environments
+    \end{itemize}
+
+  	\item \textbf{\textit{Comprehensiveness}}
+	\begin{itemize}
+  		\item The workload should exercise all platform features typically used in the major classes of applications.
+  		\item The features and services stressed should be weighted according to their usage in real-life systems.
+	\end{itemize}
+
+  	\item \textbf{\textit{Focus}}
+  	\begin{itemize}
+  		\item The workload should be focused on measuring the performance and scalability of the platform under test. 
+  		\item It should minimize the impact of other components and services that are typically used.
+	\end{itemize}
+
+  	\item \textbf{\textit{Configurability}}
+  	\begin{itemize}
+  		\item A benchmark aims to provide a flexible performance analysis framework which allows users to configure and customize the workload according to their requirements.
+	\end{itemize}
+
+  	\item \textbf{\textit{Scalability}}
+  	\begin{itemize}
+  		\item Scalability should be supported in a manner that preserves the relation to the real-life business scenario modeled. 
+	\end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Dependability Benchmarking}
+Definition of dependability by \textit{International Federation for Information Processing} is defined as: \textbf{\textit{'the trustworthiness of a computing system which allows reliance to be justifiably placed on the service it delivers'}}.
+
+\begin{itemize}
+  \item Dependability is an integrative concept that includes the following attributes:
+  \begin{itemize}
+  	\item \textit{Availability}: readiness for correct service
+  	\item \textit{Reliability}: continuity of correct service
+  	\item \textit{Safety}: absence of catastrophic consequences on the user(s) and the environment
+  	\item \textit{Confidentiality}: absence of unauthorized disclosure of information
+  	\item \textit{Integrity}: absence of improper system state alterations
+  	\item \textit{Maintainability}: ability to undergo repairs and modifications 
+  \end{itemize}
+  \item A \textit{dependability benchmark} can be defined as a specification of a standard procedure to assess dependability-related measures of a computer system or computer component.
+  \item The main components of a dependability benchmark are:
+  \begin{itemize}
+  	\item Measures: Characterize the performance and dependability of the system
+  	\item Workload: Work that the system must perform during the benchmark run
+  	\item Faultload: Set of faults that emulate real faults experienced in the field
+  	\item Procedure and rules: Description of the procedures and rules that must be followed to run the benchmark 
+  \end{itemize}
+  \item Two classes of measures can be considered when assessing dependability attributes:
+  \begin{itemize}
+  	\item \textit{Conditional measures:} measures that characterize the system in a relative fashion (i.e., measures that are directly related to the conditions disclosed in the benchmark report) and are mainly meant to compare alternative systems (e.g. response time, throughput, up-time, recovery time)
+  	\item \textit{Unconditional measures on dependability attributes:} measures that characterize the system in a global fashion taking into account the occurrence of the various events impacting its behavior (i.e., reliability, availability, maintainability, safety, etc.) 
+  \end{itemize}
+  \item The conditional measures are directly obtained as results of the benchmark experiments
+  \item The unconditional measures on dependability attributes have to be calculated using modeling techniques with the help of external data, such as fault rates, MTBF, etc.
+  \item The faultload represents a set of faults that emulates real faults experienced by the systems in the field.
+  \item A faultload can be based on three major classes of faults
+  \begin{itemize}
+  	\item \textit{Operator faults:} are human mistakes
+  	\item \textit{Software faults:} program faults or bugs
+  	\item \textit{Hardware faults:} bit-flips and stuck-at, and high-level hardware failures
+  \end{itemize}
+  \item Guidelines to run a benchmark and obtain measures
+  \begin{itemize}
+  \item Procedures for 'translating' the workload and faultload defined in the benchmark specification into the actual workload and faultload that will apply to the system
+  \item Uniform conditions to build the setup and run the dependability benchmark
+  \item Rules related to the collection of the experimental results
+  \item Rules for the production of the final measures from the direct experimental results
+  \item Scaling rules to adapt the same benchmark to systems of very different sizes
+  \item System configuration disclosures required for interpreting the benchmark results
+  \item Rules to avoid optimistic or biased results
+\end{itemize}
+\end{itemize}
+
+\textbf{Resilience Benchmarking}
+
+\begin{itemize}
+  \item A resilience benchmark should provide generic ways for characterizing a systems behavior in the presence of perturbations.
+  \item If a system is effective and efficient in accommodating or adjusting to perturbations, avoiding failures as much as possible, it is reasonable to consider it as being resilient.
+  \item Evaluating resilience must consider the system and environment dynamics that are beyond those typically addressed in the evaluation of performance and dependability.
+  \item A resilience benchmark must comprise a more wide-ranging set of perturbations, which will certainly include (but will not be limited to) faults.
+  \item In practice, resilience benchmarking includes performance, dependability, and security aspects, and aims at providing generic, repeatable and widely accepted methods for characterizing and quantifying the system (or component) behavior in the presence of faults, and comparing alternative solutions.
+  \item A concrete resilience benchmark should include the following main components:
+  \begin{itemize}
+  \item \textit{Benchmarking metrics: } the benchmark metrics should allow characterizing and quantifying the system behavior when facing perturbations (i.e, faults, attacks, and operational environment variations).
+  \item \textit{Workload: } during the benchmark execution, the system under test must be submitted to a representative set of tasks, which should be as close to real conditions as possible.
+  \item \textit{Perturbations-load: } a system may be subjected to distinct types of perturbations during its operation, and a benchmark must try to emulate those as realistic as possible. These perturbations may be of three different types: faults, attacks, and perturbations related to system's maintenance.
+\end{itemize}
+\end{itemize}
+
+\textit{\textbf{Since it is not feasible to run benchmarks in a realistic environment with thousands of nodes, new methods are needed in which allow us to benchmark large scale systems in a realistic way on limited resources. As a consequence, we see a need for research in the area of simulated benchmarks.}}
+
+
+

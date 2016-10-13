@@ -1,0 +1,93 @@
+\documentclass[a4paper,twoside,11pt]{memoir}
+\input{preamble}
+\hypersetup{
+  pdfauthor = {Kasper Nissen, Martin Jensen}, 
+  pdftitle={KubeCloud: A Small-Scale Cloud Computing Environment},
+  pdfsubject={Master's thesis at Aarhus University Department of Engineering}
+}
+
+\begin{document}
+%--------------------------------------------------------------------------%
+%------------------------- FRONT MATTER -----------------------------------%
+%--------------------------------------------------------------------------%
+\frontmatter
+\includepdf[noautoscale]{forside.pdf}
+%\include{frontpage} % Include the frontpage
+
+\include{sections/resume} % Include the resume
+\include{sections/acknowledgements}
+
+% Table of contents
+\addcontentsline{toc}{chapter}{\contentsname}{}
+\tableofcontents*
+\clearpage
+
+
+%--------------------------------------------------------------------------%
+%------------------------- MAIN MATTER ------------------------------------%
+%--------------------------------------------------------------------------%
+\mainmatter
+\include{sections/introduction} % Include the Introduction sections
+\include{sections/fundamentals_of_learning}
+\include{sections/designing_course_structure_and_learning_goals}
+\include{sections/fundamentals_of_cloud_computing}
+\include{sections/fundamentals_of_cloud_architecture}
+\include{sections/fundamentals_of_resilience} 
+\include{sections/building_a_raspberry_pi_cluster} % Include the Methods sections
+
+\include{sections/experiment2}
+\include{sections/experiment1}
+%\include{sections/experiment3}
+\include{sections/conclusion} % Include the Conclusion sections
+
+
+             %------------------------- BACK MATTER ------------------------------------%
+%--------------------------------------------------------------------------%
+
+%\appendixpage
+
+\appendix
+
+% FIX! REMEMBER TO PUT THIS BACK 
+\include{sections/appendix_learning/appendix_a} % Learning
+\include{sections/appendix_kubernetes/kubernetes}
+\include{sections/appendix_microservices/microservices}
+
+\include{sections/appendix_physical_design/physical_design}
+\include{sections/appendix_application_layer/application_layer}
+\include{sections/appendix_resilience/appendix_resilience}
+% EXPERIMENT 2
+\include{sections/appendix_overall_evaluation/evaluation}
+
+
+%\include{sections/appendix_visualizer/visualizer}
+%\include{sections/appendix_results/appendix_c}
+%\include{sections/appendix_resilience/loadtesting}
+
+
+%\include{sections/notes}
+\backmatter
+
+% List of figures
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures*
+\clearpage
+
+
+% List of tables
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables*
+\clearpage
+
+\include{sections/attachments}
+\bibliographystyle{ieeetr}
+\bibliography{reference/references}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

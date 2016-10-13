@@ -1,0 +1,83 @@
+\documentclass[a4paper,oneside,11pt]{memoir}
+\input{preamble}
+\hypersetup{
+  pdfauthor = {Kasper Nissen, Martin Jensen}, 
+  pdftitle={Resilient cloud computing in a controlled test environment},
+  pdfsubject={A master thesis about resilient cloud computing in a controlled test environment}
+}
+
+\begin{document}
+%--------------------------------------------------------------------------%
+%------------------------- FRONT MATTER -----------------------------------%
+%--------------------------------------------------------------------------%
+\frontmatter
+\include{frontpage} % Include the frontpage
+\include{sections/acknowledgements}
+\include{sections/resume} % Include the resume
+
+% Table of contents
+\addcontentsline{toc}{chapter}{\contentsname}{}
+\tableofcontents*
+\clearpage
+
+
+%--------------------------------------------------------------------------%
+%------------------------- MAIN MATTER ------------------------------------%
+%--------------------------------------------------------------------------%
+\mainmatter
+\include{sections/introduction} % Include the Introduction sections
+\include{sections/fundamentals_of_learning}
+\include{sections/designing_course_structure_and_learning_goals}
+\include{sections/fundamentals_of_cloud_computing}
+\include{sections/fundamentals_of_cloud_architecture}
+\include{sections/fundamentals_of_resilience} 
+\include{sections/building_a_raspberry_pi_cluster} % Include the Methods sections
+\include{sections/experiment1}
+\include{sections/experiment2}
+\include{sections/experiment3}
+\include{sections/conclusion} % Include the Conclusion sections
+
+
+%--------------------------------------------------------------------------%
+%------------------------- BACK MATTER ------------------------------------%
+%--------------------------------------------------------------------------%
+
+%\appendixpage
+
+\appendix
+
+% FIX! REMEMBER TO PUT THIS BACK 
+%\include{sections/appendix_a_learning/appendix_a}
+\include{sections/appendix_b_tangible_cluster/appendix_b}
+<<<<<<< HEAD
+%\include{sections/appendix_c_results/appendix_c}
+=======
+\include{sections/appendix_c_results/appendix_c}
+\include{sections/appendix_d_resilience/appendix_d}
+>>>>>>> master
+
+%\include{sections/notes}
+\backmatter
+
+% List of figures
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures*
+\clearpage
+
+
+% List of tables
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables*
+\clearpage
+
+\bibliographystyle{ieeetr}
+\bibliography{reference/references}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

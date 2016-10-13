@@ -1,0 +1,16 @@
+%!TEX root = ../../master.tex
+\section{Docker, Charles Anderson, 2015}
+
+\begin{itemize}
+  \item \textbf{What is Docker?} Docker is a container virtualization technology. So, it's like a very lightweight virtual machine.
+  \item \textbf{What problems does it address?} VM is a fairly large-weight compute resource. Your average VM is a copy of an OS on top of a hypervisor running on top of physical hardware.
+  \item Developers build code and applications and ship them to the operations people, only to discover that the code and applications don't run in production. This is the classic "It works on my machine; it's operations problem now"
+  \item Docker aims at building lightweight computing technology that helps people put code and applications inside a resource, have them be portable all the way through dev test to production
+  \item IBM released some research last year suggested that on a per-transaction basis, the average container is about 26 times faster than a VM.
+  \item Docker uses a "copy-on-write"-model
+  \item The Docker image is like a prebaked file system that contains a very thin layer of libraries and binaries that are required to make your application work, and perhaps your application code and maybe some supporting packages.
+  \item Docker relies heavily on two pieces of Linux kernel technology. The first one is called \textit{namespaces}. The kernel assigns you a namespace that has a process and whatever other resources you want.
+  \item The second piece of technology Docker uses is called \textit{cgroups}. These are designed around managing the resources available to a container. 
+  \item Cgroups allows to add and drop capabilities of the container.
+  \item Each container has its own network interface, which is a virtual network interface.
+\end{itemize}

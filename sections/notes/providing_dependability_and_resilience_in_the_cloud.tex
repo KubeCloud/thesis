@@ -1,0 +1,47 @@
+%!TEX root = ../../master.tex
+\section{Providing Dependability and Resilience in the Cloud: Challenges and Opportunities, Kounev, Reinecke, and more}
+
+\begin{itemize}
+  \item Servers in data centers nowadays are estimated to have average utilization ranging from 5\% to 20\%
+  \item The growing number of underutilized servers, often referred to as "server sprawl", translates into increasing data center operating costs including system management costs and power consumption costs of the servers.
+  \item Virtualization plays a key role since it makes it possible to significantly reduce the number of servers in data centers by having each server host multiple independent virtual machines managed by a Virtual machine monitor often referred to as a Hypervisor.
+  \item Virtualization facilitates system evolution by enabling adaptability and scalability of service infrastructures.
+  \item \textbf{\textit{Dependable:}} if the system is able to provide availability, responsiveness and reliability in the presence of hardware or software failures.
+  \item \textbf{\textit{Resilience: }} is considered as the systems ability to continue providing dependable services under external perturbations such as security attacks, accidents, unexpected load spikes or fault-loads 
+  \item \textbf{Challenges:}
+  \begin{itemize}
+  	\item The lack of trust in shared virtualized infrastructures is a major showstopper for Cloud computings widespread adoption
+  	\item 74\% of technological and financial decision makers in the UK would not put mission-critical applications in the Cloud.
+  	\item Service unavailability, performance unpredictability, and security risk are frequently cited as major reasons for the lack of trust.
+  	\item Virtualization comes at the cost of increased system complexity and dynamicity
+  	\item The increased dynamicity is caused by the introduction of virtual resources and the lack of direct control over the underlying physical hardware
+  	\item The increased complexity is caused by the complex interactions between the applications and workloads sharing the physical infrastructure.
+  	\item Service providers are faced with the following challenges:
+  	\begin{itemize}
+       \item How much resources should be allocated to a new application and how should the application be configured to satisfy its requirements for dependability and responsiveness avoiding the pitfalls of underprovisioning or overprovisioning resources
+       \item How much and at what rate and granularity should resources be added or removed proactively to avoid Service Level Agreement violations or inefficient resources usage due to varying customer workloads and load fluctuations. 
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Approaches for Dependability Assessment}
+\begin{itemize}
+  \item Availability, performance, and security can be evaluated using measurements on real deployments, measurements on test-beds, simulations, and analysis of models. Approaches specifically targeting Cloud systems are still rare.
+  \item Experimentation on test-beds is seldom performed for Cloud systems, since the complexity and cost of setting up a Cloud environment of realistic size become prohibitively large.
+\end{itemize}
+
+\textbf{Approaches for Managing Dependability and Performance}
+\begin{itemize}
+  \item Virtualization-based software rejuvenation and using VM replication as a basis for failure recovery is used to improve system dependability.
+  \item Software rejuvecation is a proactive fault management techniques aimed at cleaning up the system's internal state to prevent occurrence of servere failures dure to the phenomena of software aging or caused by transient failures.
+  \item The tradeoff between availability and performance is always present in dependability research since increasing availability (by using redundancy) typically increases response time.
+\end{itemize}
+
+\textbf{Emerging Research Directions}
+\begin{itemize}
+  \item Servers could be over-provisioned in an effort to obtain high througput, availability or resilience for all services. However this is not a viable solutions.
+  \item One of the major challenges facing Cloud Computing - how can many services be multiplexed in a virtualized environment and how to guarantee service level agreements imposed upon those services while minimizing the energy costs and maximizing the revenue of the overall cloud environment.
+\end{itemize}
+
+
+

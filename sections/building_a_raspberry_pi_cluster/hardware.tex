@@ -1,0 +1,52 @@
+%!TEX root = ../../master.tex
+
+\section{Hardware}
+In order to build KubeCloud, choices of hardware need to be determined within the constraints of the budget. This section will describe the chosen hardware and present the total cost of constructing KubeCloud clusters.  A single KubeCloud will contain four nodes and a switch.
+
+\subsubsection*{Server}
+
+The physical computers (servers) in the cluster have to be chosen. Previous efforts in building small-scale cloud computing environments have chosen the Raspberry Pi as computational units \cite{tso2013glasgow, abrahamsson2013bolzano, cox2014iridis}. The Raspberry Pi is a cheap, yet powerful little machine (900MHz Quad Core Processor, 1GB RAM, ARMv7), that does not require extra cooling, and that easily can be mounted on a surface. Moreover, the Raspberry Pi has the ability to run many different Linux distributions. The low price tag makes it ideal for building a small cluster. Each Raspberry Pi has a 16 GB Kingston Micro SDHC card and is powered by the official Raspberry Pi 2A power supply. 
+
+
+\subsubsection*{Switch}
+The Raspberry Pi's Ethernet port is attached via the USB 2.0 bus, which results in the upstream bandwidth not supporting gigabit speeds. The speed requirements for the switch, therefore, did not play a significant role in the selection.  A 10/100 Mbps switch is sufficient, and the dimensions and the number of ports become the most significant details of the switch. The smaller the better. The chosen switch is a Dlinkgo Fast Ethernet Switch GO-SW-5E with five Ethernet ports (10/100 Mbps). The cables were chosen to be Ethernet Cat5e UTP. The most significant part of choosing cables was length, price, and color of cables. The colors make it easy to distinguish between the nodes in the cluster which is important during exercises.
+
+
+\subsubsection*{Cost}
+The actual cost (excl. VAT) of building a KubeCloud cluster is shown below.
+
+\renewcommand*{\arraystretch}{1}
+\begin{longtable}{cp{8cm}rrr}
+\toprule
+Item   &Description & Price (DKK) & Qty & Total (DKK)\\
+\midrule
+    \product{Raspberry Pi 2 Model B}{244.15}{4}
+    \product{Raspberry Pi 2 power supply}{34.11}{4}
+    \product{Kingston MicroSDHC 16 GB}{37.96}{4}
+    \product{Dlinkgo Switch GO-SW-5E}{53.16}{1}
+    \product{Cat 5e UTP Network cable 0.25m - Orange, Violet, Yellow, Green}{4.00}{4}
+    \product{Cat 5e UTP Network cable 1.50m - Blue}{9.60}{1}
+\midrule
+    &&&& Total \totalttc\\
+\bottomrule
+\end{longtable}
+
+\noindent
+In addition to the KubeCloud clusters, an additional 16-port switch and a router is purchased. The router is needed to create a WiFi network in the classroom for easy access to the clusters. The rack is manufactured at the local tool shop at Aarhus University School of Engineering. To ensure each student gets hands-on time with the cluster, a total of 8 clusters are built. The total cost of the materials used within this present master thesis is: 
+\setcounter{cnt}{0}
+
+\begin{longtable}{cp{8cm}rrr}
+\toprule
+Item   &Description & Price (DKK) & Qty & Total (DKK)\\
+\midrule
+    \product{Raspberry Pi Kubernetes cluster}{1343.64}{8}
+    \product{D-Link DIR-816L AC750 Router}{239.20}{1}
+    \product{Sempre Switch 16-port 10/100}{185.00}{1}
+    \product{Materials at toolshop (approx)}{200.00}{1}
+\midrule
+    &&&& Total \totalttc\\
+\bottomrule
+\end{longtable}
+
+\noindent
+The total amount in USD excl. VAT is approximately \$1915\footnote{DKK-USD currency: 664}. The price per student assuming four students per cluster is USD ~\$60. The total cost is within the constrained budget.

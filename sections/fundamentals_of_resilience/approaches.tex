@@ -1,0 +1,33 @@
+%!TEX root = ../../master.tex
+\section{Different Approaches to Resilience}\label{resilience_approaches}
+Other approaches achieving or assisting the degree of resilience can be applied. These approaches will be described in this section and compared to the previously mentioned methods.
+
+\subsection*{Formal Methods}
+Formal methods are for instance used to ensure safety-critical systems against faults. In that sense, formal methods provide fault avoidance. On embedded devices the software stack does not contain as many layers as in cloud computing. Candea and Fox questions the need for formal models in Internet systems since the validity of the model does not take the underlying complexity into account.
+
+\begin{citat} []
+Computer scientists have tried to use prescriptive rules, such as formal models and invariant proofs, to reason about software. These rules, however, are often formulated relative to an abstract model of the software that does not completely describe the behavior of the running system (which includes hardware, an operating system, runtime libraries, etc.). \textbf{- Candea and Fox, 2003} \cite[p. 68]{candea2003crashonly}
+\end{citat}
+
+\noindent 
+For this reason and the need to respond to changes quickly, we have not worked with formal methods.
+
+
+\subsection*{Simulations}
+CloudSim is a modeling and simulation framework for cloud computing infrastructures and service created at the University of Melbourne that can simulate components such as data centers, virtual machines, power consumption, memory provisioning, and hosts. Workloads can be simulated on different models of cloud infrastructures. CloudSim has also been used for teaching purposes \cite{jararweh2013teachcloud}. 
+
+\subsection*{Chaos Engineering at Netflix}
+\noindent 
+Netflix has an interesting approach to ensure resilience and to some extend even antifragility. They introduce faults in their production environment in different ways to learn how to handle failures.
+Bennet and Tseitlin explain the approach in the following way:
+ \textit{"By frequently causing failures, we force our services to be built in a way that is more resilient." \cite{bennett2012chaosmonkey}} \\ 
+They embrace failures and apply an approach of 'chaos engineering'. \\
+
+\noindent
+Netflix uses several different tools and have created a 'simian army' that contains several destructive tools named after monkeys. These monkeys are, from time to time, let loose to harden their software, check that everything is as expected, and test specific components. Some of the tools are explained in the following. \\
+\textit{Chaos Monkey} is a tool to kill virtual machine instances randomly on their cloud provider (AWS). \textit{Janitor monkey} cleans up by shutting down the unused resources. \textit{Conformity Monkey} shuts down instances not following the best practices, leading to a relaunch. \textit{Chaos Gorilla} is similar to Chaos Monkey, but instead of killing a virtual machine it simulates an outage in an AWS availability zone. \textit{Chaos Kong} does the same as Chaos Gorilla, but simulates outages in AWS regions which consist of multiple availability zones. In this case, all traffic must be directed to another region e.g. from US-WEST to US-EAST regions.
+The idea behind these concepts is described by the Netflix Chaos Team:
+\textit{"We knew that we could rely on engineers to build resilient solutions if we gave them the context to *expect* servers to fail." \cite{basiri2015chaosengineering}}. This approach is very similar to \textit{crash-only software} in which software is designed to \textit{"crash safely and recover quickly" \cite[p. 1]{candea2003crashonly}}. \\
+ 
+ \noindent On September 20th 2015 an AWS region became unavailable and a lot of large Internet sites were down, but Netflix's preparations helped them - similar to antibody in medicine: \\
+ \textit{"Netflix did experience a brief availability blip in the affected Region, but we sidestepped any significant impact because Chaos Kong exercises prepare us for incidents like this."} \cite{basiri2015chaosengineering}.

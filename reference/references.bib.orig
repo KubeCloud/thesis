@@ -1,0 +1,331 @@
+% This file was created with JabRef 2.10.
+% Encoding: MacRoman
+
+
+@Book{ari2006principles,
+  Title                    = {Principles of concurrent and distributed programming},
+  Author                   = {Ari, M},
+  Publisher                = {Addison-Wesley},
+  Year                     = {2006},
+
+  Address                  = {Harlow, England New York},
+
+  ISBN                     = {032131283x}
+}
+
+@Article{containers_and_cloud,
+  Title                    = {"Containers and Cloud: From LXC to Docker to Kubernetes"},
+  Author                   = {David Bernstein},
+  Journal                  = {IEEE Cloud Computing, vol.1, no. 3, pp. 81-84},
+  Year                     = {Sept. 2014},
+
+  Owner                    = {mixmox},
+  Timestamp                = {2016.02.05}
+}
+
+@Article{bernstein2014containers,
+  Title                    = {Containers and Cloud: From LXC to Docker to Kubernetes},
+  Author                   = {D. Bernstein},
+  Journal                  = {IEEE Cloud Computing},
+  Year                     = {2014},
+
+  Month                    = {Sept},
+  Number                   = {3},
+  Pages                    = {81-84},
+  Volume                   = {1},
+
+  Doi                      = {10.1109/MCC.2014.51},
+  ISSN                     = {2325-6095},
+  Keywords                 = {Cloud computing;Containers;Google;Home appliances;Linux;Runtime;Virtual machine monitors;cloud;containers;dockers;virtual machines}
+}
+
+@Book{biggs1982evaluating,
+  Title                    = {Evaluating the quality of learning : the SOLO taxonomy (structure of the observed learning outcome},
+  Author                   = {Biggs, John},
+  Publisher                = {Academic Press},
+  Year                     = {1982},
+
+  Address                  = {New York},
+
+  ISBN                     = {012-097550-5}
+}
+
+@Article{44843,
+  Title                    = {Borg, Omega, and Kubernetes},
+  Author                   = {Brendan Burns and Brian Grant and David Oppenheimer and Eric Brewer and John Wilkes},
+  Journal                  = {ACM Queue},
+  Year                     = {2016},
+  Pages                    = {70--93},
+  Volume                   = {14},
+
+  Url                      = {http://queue.acm.org/detail.cfm?id=2898444}
+}
+
+@Book{chiles2002inviting,
+  Title                    = {Inviting disaster : lessons from the edge of technology : an inside look at catastrophes and why they happen},
+  Author                   = {Chiles, James},
+  Publisher                = {HarperBusiness},
+  Year                     = {2002},
+
+  Address                  = {New York},
+
+  ISBN                     = {9780066620824}
+}
+
+@Book{christensen2010flexible,
+  Title                    = {Flexible, reliable software : using patterns and agile development},
+  Author                   = {Christensen, Henrik},
+  Publisher                = {Chapman \& Hall/CRC},
+  Year                     = {2010},
+
+  Address                  = {Boca Raton, FL},
+
+  ISBN                     = {9781420093629}
+}
+
+@Article{Churchill2006,
+  Title                    = {Towards a useful classification of learning objects},
+  Author                   = {Churchill, Daniel},
+  Journal                  = {Educational Technology Research and Development},
+  Year                     = {2006},
+  Number                   = {5},
+  Pages                    = {479--497},
+  Volume                   = {55},
+
+  Abstract                 = {The learning object remains an ill-defined concept, despite numerous and extensive discussion in the literature. This paper attempts to address this problem by providing a classification that potentially brings together various perspectives of what a learning object may be. Six unique types of learning objects are proposed and discussed: presentation, practice, simulation, conceptual models, information and contextual representation objects. The common characteristics of each are synthesized in a proposal that a learning object is best described as a representation designed to afford uses in different educational contexts. The classification of learning objects proposed could be useful as a framework for designers of digital resources and for those engaged in use of these resources in educational contexts.},
+  Doi                      = {10.1007/s11423-006-9000-y},
+  ISSN                     = {1556-6501},
+  Url                      = {http://dx.doi.org/10.1007/s11423-006-9000-y}
+}
+
+@Article{churchill2003effective,
+  Title                    = {EFFECTIVE DESIGN PRINCIPLES FOR ACTIVITY-BASED LEARNING: THE CRUCIAL ROLE OF'LEARNING OBJECTS'IN SCIENCE AND ENGINEERING EDUCATION},
+  Author                   = {Churchill, Daniel},
+  Journal                  = {Paper presented at the Ngee Ann Polytechnic},
+  Year                     = {2003},
+  Volume                   = {2}
+}
+
+@Book{evans2004domain-driven,
+  Title                    = {Domain-driven design : tackling complexity in the heart of software},
+  Author                   = {Evans, Eric},
+  Publisher                = {Addison-Wesley},
+  Year                     = {2004},
+
+  Address                  = {Boston},
+
+  ISBN                     = {9780321125217}
+}
+
+<<<<<<< HEAD
+@Misc{boundedcontext2014fowler,
+  Title                    = {BoundedContext},
+
+  Author                   = {Fowler, Martin},
+  HowPublished             = {\url{http://martinfowler.com/bliki/BoundedContext.html}},
+  Year                     = {2014},
+
+  Publisher                = {January}
+=======
+@Article{fallon2013activity,
+  Title                    = {An activity-based approach to the learning and teaching of research methods: Measuring student engagement and learning},
+  Author                   = {Fallon, Eimear and Walsh, Stephen and Prendergast, Terry},
+  Journal                  = {Irish Journal of Academic Practice},
+  Year                     = {2013},
+  Number                   = {1},
+  Pages                    = {2},
+  Volume                   = {2},
+
+  Publisher                = {Dublin Institute of Technology}
+}
+
+@Article{Felder88k.:learning,
+  Title                    = {K.: Learning and teaching styles in engineering education},
+  Author                   = {Richard M. Felder and North Carolina},
+  Journal                  = {Engineering Education},
+  Year                     = {1988}
+}
+
+@InProceedings{horn2008tangible,
+  Title                    = {Tangible programming and informal science learning: making TUIs work for museums},
+  Author                   = {Horn, Michael S and Solovey, Erin Treacy and Jacob, Robert JK},
+  Booktitle                = {Proceedings of the 7th international conference on Interaction design and children},
+  Year                     = {2008},
+  Organization             = {ACM},
+  Pages                    = {194--201}
+>>>>>>> master
+}
+
+@Book{humble2015lean,
+  Title                    = {Lean enterprise : adopting continous delivery, devops, and lean startup at scale},
+  Author                   = {Humble, Jez},
+  Publisher                = {O'Reilly Media},
+  Year                     = {2015},
+
+  Address                  = {Sebastopol, CA},
+
+  ISBN                     = {9781449368425}
+}
+
+@Book{humble2011continuous,
+  Title                    = {Continuous delivery},
+  Author                   = {Humble, Jez},
+  Publisher                = {Addison-Wesley},
+  Year                     = {2011},
+
+  Address                  = {Upper Saddle River, NJ},
+
+  ISBN                     = {0321601912}
+}
+
+@Article{jonassen1999activitytheory,
+  Title                    = {Activity theory as a framework for designing constructivist learning environments},
+  Author                   = {Jonassen, David H.
+and Rohrer-Murphy, Lucia},
+  Journal                  = {Educational Technology Research and Development},
+  Number                   = {1},
+  Pages                    = {61--79},
+  Volume                   = {47},
+
+  Doi                      = {10.1007/BF02299477},
+  ISSN                     = {1556-6501},
+  Url                      = {http://dx.doi.org/10.1007/BF02299477}
+}
+
+@Book{krause2015microservices:,
+  Title                    = {Microservices: patterns and applications : designing fine-grained services by applying patterns},
+  Author                   = {Krause, Lucas},
+  Publisher                = {Lucas Krause},
+  Year                     = {2015},
+
+  Address                  = {s.l},
+
+  ISBN                     = {9780692424278}
+}
+
+@Book{kurose2013computer,
+  Title                    = {Computer networking : a top-down approach},
+  Author                   = {Kurose, James},
+  Publisher                = {Pearson},
+  Year                     = {2013},
+
+  Address                  = {Boston, Mass. London},
+
+  ISBN                     = {0273768964}
+}
+
+@Misc{lewis2014microservices,
+  Title                    = {Microservices},
+
+  Author                   = {Lewis, James and Fowler, Martin},
+  HowPublished             = {\url{http://martinfowler.com/articles/microservices.html}},
+  Year                     = {2014},
+
+  Publisher                = {March}
+}
+
+@Misc{gartner_iot_devices,
+  Title                    = {\textit{Gartner Says 6.4 Billion Connected "Things" Will Be in Use in 2016, Up 30 Percent From 2015}},
+
+  Author                   = {Rob van der Meulen},
+  HowPublished             = {\url{http://www.gartner.com/newsroom/id/3165317}},
+  Month                    = {November},
+  Year                     = {2015},
+
+  Owner                    = {kaspernissen},
+  Timestamp                = {2016.03.29}
+}
+
+@Electronic{history_of_cloud_computing,
+  Title                    = {A history of cloud computing},
+
+  Address                  = {http://www.computerweekly.com/feature/A-history-of-cloud-computing},
+  Author                   = {Arif Mohamed},
+  HowPublished             = {March 2009},
+  Month                    = {03},
+  Note                     = {http://www.computerweekly.com/feature/A-history-of-cloud-computing - Revision at 05/02-2016},
+  Url                      = {http://www.computerweekly.com/feature/A-history-of-cloud-computing},
+  Year                     = {09},
+
+  Owner                    = {kaspernissen},
+  Timestamp                = {2016.02.05}
+}
+
+@Book{negus2016docker,
+  Title                    = {Docker containers : build and deploy with Kubernetes, Flannel, Cockpit, and Atomic},
+  Author                   = {Negus, Chris},
+  Publisher                = {Prentice Hall},
+  Year                     = {2016},
+
+  Address                  = {Old Tappan, New Jersey},
+
+  ISBN                     = {013413656x}
+}
+
+@Book{newman2015building,
+  Title                    = {Building microservices : designing fine-grained systems},
+  Author                   = {Newman, Sam},
+  Publisher                = {O'Reilly Media},
+  Year                     = {2015},
+
+  Address                  = {Sebastopol, CA},
+
+  ISBN                     = {9781491950357}
+}
+
+@Book{nygard2007release,
+  Title                    = {Release it! : design and deploy production-ready software},
+  Author                   = {Nygard, Michael},
+  Publisher                = {Pragmatic Bookshelf},
+  Year                     = {2007},
+
+  Address                  = {Raleigh, N.C},
+
+  ISBN                     = {9780978739218}
+}
+
+@Book{omer2013resilience,
+  Title                    = {The resilience of networked infrastructure systems analysis and measurement},
+  Author                   = {Omer, Mayada},
+  Publisher                = {World Scientific Pub. Co},
+  Year                     = {2013},
+
+  Address                  = {Singapore Hackensack, N.J},
+
+  ISBN                     = {978-981-4452-81-6}
+}
+
+@Article{postholm2008activitytheory,
+  Title                    = {Cultural historical activity theory and Dewey's idea-based social constructivism: Consequences for Educational Research},
+  Author                   = {May Britt Postholm},
+  Journal                  = {Outlines. Critical Practice Studies},
+  Year                     = {2008},
+  Number                   = {1},
+  Pages                    = {37--48},
+  Volume                   = {10},
+
+  ISSN                     = {1904-0210},
+  Keywords                 = {learning; activity, community; practice; constructivism; pragmatism},
+  Url                      = {http://ojs.statsbiblioteket.dk/index.php/outlines/article/view/1966}
+}
+
+@Book{sosinsky2011cloud,
+  Title                    = {Cloud computing bible},
+  Author                   = {Sosinsky, Barrie},
+  Publisher                = {Wiley John Wiley distributor},
+  Year                     = {2011},
+
+  Address                  = {Indianapolis, IN Chichester},
+
+  ISBN                     = {978-0-470-90356-8}
+}
+
+@InProceedings{43438,
+  Title                    = {Large-scale cluster management at {Google} with {Borg}},
+  Author                   = {Abhishek Verma and Luis Pedrosa and Madhukar R. Korupolu and David Oppenheimer and Eric Tune and John Wilkes},
+  Booktitle                = {Proceedings of the European Conference on Computer Systems (EuroSys)},
+  Year                     = {2015},
+
+  Address                  = {Bordeaux, France}
+}
+

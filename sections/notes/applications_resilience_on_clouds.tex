@@ -1,0 +1,27 @@
+%!TEX root = ../../master.tex
+\section{Applications Resilience on Clouds (2012)}
+"However, only limited work has been done so far on application resilience" \\
+"This paper addresses open issues and solutions for application errors detection and management. It also overviews a testbed used to to design, deploy execute, monitor, restart and resume distributed applications on cloud infrastructures in cases of failures." \\
+\\
+Different \textbf{types of errors}:
+\begin{itemize}
+  \item Error: Generic term for abnormal behaviour
+  \item Failures: "non-terminal error conditions that do not affect the normal flow of the process" - resolve a DNS address
+  \item Fault: "an activity can be programmed to throw a fault following a system failure" - raising an exception
+  \item Fault tolerance: "the ability to handle errors"
+  \item Checkpoints: "Therefore checkpoints need to be designed at specific intervals to backtrack the applications to consistent points in the application execution, and restart be enabled from there."
+\end{itemize}
+\noindent
+\\
+"Resilience requires the application to include four components"
+\begin{itemize}
+  \item a monitoring component for early error detection
+  \item an effective decision system, for provenance and impact assessment
+  \item a low overhead checkpoint mechanism
+  \item an effective recovery mechanism
+\end{itemize}
+\noindent
+\\
+"Many open issues are still the subject of active research concerning application resilience. The Paradigm ranges from code and data duplication and migration, to the monitoring of application behaviour, and this includes also quick correctness checks on partial data values, the design of error-aware algorithms, as well as hybrid checkpointing-message logging features."
+\\ \\
+Pending tasks: "Opportunistic checkpoints might here be interesting to store already produced data and application state. This is related to asymmetric checkpoints, where the users define points of interest in the application runs where checkpoints and snapshots must be stored in order to prevent potential catastrophic failures later."

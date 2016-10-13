@@ -1,0 +1,36 @@
+%!TEX root = ../../master.tex
+
+\section{Benefits and Limitations}
+The benefits and limitations met in the process of designing and implementing KubeCloud will be described in this section.
+
+\subsection*{Benefits}
+\textbf{Hands-on} \\
+The cluster allows students to interact and experiment with a physical model of the concepts. Raspberry Pis are used as server machines (Kubernetes nodes) instead of spinning up virtual machines on a cloud provider. This enables the students to inject failures such as pulling the network cable, attacking with a large traffic load, etc. \\
+
+\noindent \textbf{Visualization} \\
+The visualization tool is not restricted to Kubernetes in a Raspberry Pi cluster. The representation of the nodes makes it easier to understand where workloads are scheduled and how the cluster maintains the desired state. \\
+
+\noindent \textbf{Affordable Test Environment} \\
+Buying a test environment is expensive in terms of hardware, cooling, installation and power consumption. An example from the University of Helsinki spending around one million Euros without cooling systems \cite[p. 170-171]{abrahamsson2013bolzano} illustrates how expensive this solution is. By contrast, KubeCloud is cheap, portable, and has low power consumption. KubeCloud is not as performant as a full-size data center, but the same concepts and network errors can be experimented with in a closed test environment. \\
+
+\noindent \textbf{Transportable} \\
+The fact that KubeCloud is transportable allows students to use the cluster whenever they want to. No expensive installation of a large data center is necessary. \\
+
+\noindent \textbf{Configurable} \\
+Since KubeCloud can be configured in numerous ways, the clusters can also be used with a varying amount of workers per master. The physical design allows the physical clusters to be assembled with a varying amount of Raspberry Pis. \\
+
+\noindent \textbf{Flexible} \\
+Another benefit is KubeCloud's flexibility in terms of what software it can run. Docker allows everything that can be packaged into a Docker image (on ARM) to run in the cluster. This makes it easy to have different runtimes available without causing conflicts between different versions among the users. Since Docker can be used without Kubernetes it is not needed to understand Kubernetes to use the cluster. 
+
+\subsection*{Limitations}
+\textbf{ARM Architecture} \\
+The largest limitation is that Raspberry Pis use the ARM architecture. The benefit of low price and lower power consumption comes with trade-offs. Most developer machines do not use ARM architecture which leads to an unfortunate situation concerning Docker. Containers must be built on an ARM machine or cross-compiled, but this introduces the issue of different execution environments that Docker is trying to solve in the first place. Running ARM-built containers, on the other hand, might be accessible from a developer machine in the near future\footnote{\url{http://blog.hypriot.com/post/first-touch-down-with-docker-for-mac/}}. The fragmentation that ARM architecture introduces is, though, still unfortunate in regards to what images can be applied. \\
+
+\noindent \textbf{Build/Deployment Process Slow} \\
+When a microservice is updated with new functionality, it takes some time before it is running in the cluster. In the process a new Docker image must be built and pushed to a registry, configuration files updated, and a deployment with the new image started. Because of the Raspberry Pi's performance pulling and pushing Docker images take some time. This manual process could be automated by leveraging concepts from continuous delivery. \\
+
+\noindent \textbf{Power Supply} \\
+In KubeCloud, each Raspberry Pi has its own power supply connected to a power strip. This results in many cables, and a better solution would have been a power hub built into the physical construction. However, due to budget constraints, this was not possible. \\
+
+\noindent \textbf{Stability Concerns} \\
+In order to sustain a stable Raspberry Pi cluster, all nodes must be shut down correctly. The portability of the cluster introduces a risk of stability issues opposite a datacenter in a basement. Pulling the power plug can lead to corrupt SD cards or invalid state in the Kubernetes cluster. 

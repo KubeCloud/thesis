@@ -1,0 +1,210 @@
+%!TEX root = ../../master.tex
+
+\subsubsection*{Week 2: Reflection}
+
+
+%%%% Q1
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 1: Describe with your own words the benefits and drawbacks of virtualization in general}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 1: Describe with your own words the benefits and drawbacks of virtualization in general}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 1: Describe with your own words the benefits and drawbacks of virtualization in general}
+\endfoot
+\caption{Question 1: Describe with your own words the benefits and drawbacks of virtualization in general}
+\label{w2_q1}
+\endlastfoot
+
+1 & Pas :( \\ \hline
+2 &  Der er et større eller mindre performance overhead. Èt ekstra opsætningslag, der gerne skulle hjælpe med levetiden og udrulningen af efterfølgende software iterationer.
+
+\noindent Hardware/kernel abstraktion.
+
+\noindent (Forhåblig) øget interprocess sikkerhed. \\ \hline
+
+3 & It allows a separation of hardware and software \\ \hline
+
+4 & virtualization is good because you are able to run something in a different os/environment without having to reinstall everything on the machine that needs to run it.
+
+\noindent the biggest drawback is that virtualiztion can be rather slow and take up a lot of resources,. \\ \hline
+
+5 & Virtualization can require alot of resources. 
+
+\noindent Virtualization is smart because its not hardware dependent. \\ \hline
+
+6 & Virtualization have many benefits since it abstracts hardware specific details away. It makes it possible to create virtual machines running different OS independent of the computers hardware. 
+
+\noindent I don't see any drawbacks ;-) \\ \hline
+
+7 & Virtualization makes it easier to compartmentalize an environment, and make sure it can be run the same everywhere. \\ \hline
+
+8 & Benefits are that you are able to run applications and deployments on a server, which can be accessed by many. A drawback could be that it is not always the fastest way, especially if you choose to do it with a VM. \\ \hline
+
+9 & The ability to seperate the software running on an OS from the actual hardware is key for cloud computing.  \\ \hline
+
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Unistructural} \\ 
+\end{longtable}
+\normalsize
+
+
+
+%%%% Q2
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 2: Describe with your own words, the difference between Containers and Virtual Machines on Hypervisors?}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 2: Describe with your own words, the difference between Containers and Virtual Machines on Hypervisors?}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 2: Describe with your own words, the difference between Containers and Virtual Machines on Hypervisors?}
+\endfoot
+\caption{Question 2: Describe with your own words, the difference between Containers and Virtual Machines on Hypervisors?}
+\label{w2_q2}
+\endlastfoot
+
+1 & Containers does not require a lot of OS specifications compiled/stored inside them. An virtual machine needs to be deployed with a lot of "extra" stuff in it. \\ \hline
+
+2 & Containers work as a sort of stand-alone app with the OS integrated, whereas the VM is a complete OS, where the application resides and run in. The latter therefore has a larger overhead. \\ \hline
+
+3 & Container metoden genbruger en større del af softwaren imellem de enkelte instancer. Virtualizerer 'kun' kernen og ikke hele systemet.
+
+\noindent Dog kan man ikke samtidig køre containere med forskellige styresystemer. \\ \hline
+ 
+4 & A container is a special kind of virtual machine which makes it easy to pack, test and deploy software. A container doesn't spend time and power on running a guest OS which results in fast startups.
+
+\noindent A virtual machine can be running on the "bare metal" or on a host operating system. The big difference is that a virtual machine is running a complete operating system (a guest OS) in a closed environment. \\ \hline
+
+5 & Virtual machines is typical a whole os installed on another system with all the dependencys the os need.
+
+\noindent A container only contains the requirements that the program is dependent on \\ \hline
+
+6 & containers are smaller units isolated units that share a common host os and its functions (including the security risks) \\ \hline
+
+7 & containers allow services to run directly from any OS, the container handles all the "virtualization" and thus there is no need for a guest OS, which is the case with the virtual machines running on hypervisors. This is turn makes the contaner much more lightweight and flexible. \\ \hline
+
+8 & A container is much easier to deploy than a VM on Hypervisor. The VM is a large file, and is a "heavyweight" to handle in cloud. A big drawback of the VM is that the application restarts the whole VM, and for every new application you need a new VM.
+
+\noindent With containers applications can share OS, and deployments are much easier. \\ \hline
+
+9 & A Virtual Machine is a full functional OS which is running atop of hardware abstraction (hypervisor). A Container virtualizes a file system and several can be running at the same time.  \\ \hline
+
+10 & With Containers you run directly on the host OS and avoid the Guest OS \\ \hline
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Unistructural} \\ 
+\end{longtable}
+\normalsize
+
+
+
+%%%% Q3
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 3: Describe with your own words, benefits and drawbacks of Docker containers}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 3: Describe with your own words, benefits and drawbacks of Docker containers}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 3: Describe with your own words, benefits and drawbacks of Docker containers}
+\endfoot
+\caption{Question 3: Describe with your own words, benefits and drawbacks of Docker containers}
+\label{w2_q3}
+\endlastfoot
+
+1 & Se spørgsmål et \\ \hline
+
+2 & I think that Docker is one of the best technologies on the market today. It makes it really easy to create images from which containers can be created and makes it fun and easy to deploy software.
+
+\noindent Another huge benefit is that the docker hub contains many official images which makes it very easy to for example spin up a mongodb etc.
+
+\noindent I don't see any drawbacks. \\ \hline
+
+3 &  + Less overhead + Make it possible to run at an environment equal to the developer environment + Backward compatibility.. change comes wethin new version of the image \\ \hline
+
+4 & "One size fits (almost) all". Almost every container can be used by almost avery OS/client. This means it is easier to deploy. Furthermore almost everything can be scripted in the container. (Test, Integration etc.) \\ \hline
+
+5 & you dont have to worry about having the same version of dependencies since the containers are independant  \\ \hline
+
+6 & Can't run on windows. It needs a Linux platform (virtual machine) \\ \hline
+
+7 & they are scalable, fast and easy to setup. Less secure than a vm. More resource overhead compared to a native application. \\ \hline
+
+8 & Docker containers (as of now) have no drawback that i know of. The benefit of these containers is that they can be shipped easily, and the docker hub allows for easy acces.     \\ \hline
+
+9 & Docker container are very lightweight and flexible, this can be seen if you compare it to VM's on hypervisor, and by looking at "the matrix from hell". Here we see that contianers make it easy to package and deploy any kind of application in any kind of environment, because of the containers. Not quite sure of what drawbacks there are to containers. I read somewhere that there might be worse security, compared to VM's. \\ \hline
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Unistructural} \\ 
+\end{longtable}
+\normalsize
+
+%%%% Q4
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 4: Describe with your own words how Docker fits into a microservice architecture}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 4: Describe with your own words how Docker fits into a microservice architecture}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 4: Describe with your own words how Docker fits into a microservice architecture}
+\endfoot
+\caption{Question 4: Describe with your own words how Docker fits into a microservice architecture}
+\label{w2_q4}
+\endlastfoot
+
+1 & Microservice is about split a monolich application in many small distributed services which maybe is implemented using different language. If the environments is not running Docker, it will be hard to deploy all these different small application. \\ \hline
+
+2 & It is possible to make containers for small single microservice, so every service can be changed independently \\ \hline
+
+3 & Docker gives the ability to run each microservice within a container, which ensures that the services are not dependent on a specific OS-setup. \\ \hline
+
+4 & Docker gives the ability to run each microservice within a container, which ensures that the services are not dependent on a specific OS-setup. \\ \hline
+
+5 & In my opinion it fits very well since every microservice can be contained in a docker image. A microservice application which uses docker is easy to scale since the only thing it requires is to spin up more containers if more "power is required" or kill them if they aren't needed. \\ \hline
+
+6 & Docker helps us deploy the microservices in an easy manner, especially when kubernetes starts getting involved, which will hopefully grant a better overview of running services etc.\\ \hline
+
+7 & Placing a microservice inside a docker container allows for easier scaling and deploying of new services \\ \hline
+
+8 & Yes can start and communicate with a docker container like a microservice. Furthermore it can perform tasks like a microservice. Can be instantiated any number of time (a container/microservice)\\ \hline
+
+9 & A single microservice can be contained in a docker container, these containers can than be started, stopped and upgraded easily fx for loadbalancing\\ \hline
+
+10 & Microservice giver kun mening i et online miljø, og oplyser at man ønsker at vedligeholde et antal services/applikationer. Docker hjælper med at håndtere afhængigheder og opdatering/udrulning.\\ \hline
+
+11 & lightweight applications that are easy to maintain independantly\\ \hline
+
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Unistructural} \\ 
+\end{longtable}
+\normalsize
+

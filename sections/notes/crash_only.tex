@@ -1,0 +1,77 @@
+%!TEX root = ../../master.tex
+\section{Crash-only software (2003)}
+Stopping crash-only software == crashing \\
+Starting crash-only software == recovering \\
+Intra-component crashes -> retries. Transparent from end user.\\
+Crash-only => More reliable, predictable code + faster effective recovery \\
+\textbf{1) Occam's Razor} \\
+Sources of downtime (referencing paper) is caused by transient and intermittent bugs  \\ \\
+Unavailability comparison: \\
+Cleanly-reboot: shutdown + "time to come back" \\
+Crash-reboot: "time to recover" \\
+Crash-reboot is faster, but can lead to inconsistent state \\
+\\
+It is impractical to guarantee no crashes - Power off is always an option \\
+The software must be able to handle crash (shutdown) \\
+If crash-prepared, why support more kinds of shutdown? (clean shutdown) \\
+Inconsistent state can be a problem \\
+Clean shutdown prioritizes: "stady state" > shutdown/recovery performance \\
+Clean shutdown introduces an extra way to change state \\
+Harder to maintain \\
+\\
+Other articles about "micro-reboots" and "recursive restart" \\
+\\
+\textbf{STOP=CRASH} \\
+\textbf{START=RECOVER} \\
+
+\textbf{2) Why crash-only design?} \\
+In physics: Descriptive physical laws (like Newton's law) \\
+In software: Prescriptive rules (formal methods, invariant proofs) formulated relative to an ABSTRACT MODEL that does not completely describe the behaviour of running system. It ignores: hardware, OS, runtime libraries etc. \\
+\\
+Macroscoping behaviour. Simpler predictable "universe". \\
+Components MUST be ready for crashes \\
+Makes crash the default instead of something seldom happening (hard to test) \\
+Crash-only design is a generalization of transactions (use data-store) \\
+Makes it affordable to crash. \\
+Unkonwn fault => crash => recover => available again \\
+
+\textbf{3: Properties (what)} \\
+Important non-volatile state in dedicated "state stores" (allows crashes) \\
+Components tolerate crash/unavailability of peers (modularity, boundaries, timeouts, self-describing requests, time-to-live)\\
+Sacrifice some performance for robustness \\
+\\
+3.1: Intra-component properties \\
+different kinds of state \\
+Important non-volatile => dedicated "state stores" => stateless apps \\
+"state stores" must be crash-only, e.g. Postgres "append-only log" allows discard if uncommitted. \\
+Find the suitable store per component \\
+\\
+3.2: Inter-component properties \\
+Subsystems can crash => unavailability \\
+Externally enforaced boundaries (VMs or alike) \\
+Use timeouts and assume failures => recovery agent can crash component \\
+Leases (for resources) with expiration \\
+Self-describing requests: URL, TTL, idempotent \\
+\\
+\textbf{4) A restart/retry Architecture}
+Component: \\
+\begin{itemize}
+	\item report failure of peer to agent
+	\item calls RetryAfter(n) n is msec estimate of time-to-recover
+	\item if TTL isn't OK, propagate exception
+\end{itemize}
+Timeouts supplemented with heartbeats and progress counters \\
+Loosely coupled systems are surprising \\
+Resubmitting req => overload => solution: spread retry wait value \\
+Use "stall proxy" to avoud flood during recovery -> introduce latency \\
+
+\textbf{5) Discussion} \\
+Applying principles in OpenSource webserver (referenced article?) \\
+Not handling Byzantine failure and data errors \\
+Fast recovery => less redundancy needed \\
+Lower throughput expected but higher availability \\
+
+\textbf{6) Conclusion} \\
+They are EXPECTING better reachability, higher availability, and simpler fault models. \\
+Invariants easier to predict \\
+Initial prototype 78\% more requests under "faultload"

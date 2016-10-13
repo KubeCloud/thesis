@@ -1,0 +1,14 @@
+%!TEX root = ../../master.tex
+\section{Architectural Slicing: Towards Automatic Harvesting of Architectual Prototypes, Bærbak, Hansen, 2013}
+
+\begin{itemize}
+  \item Architectural prototyping is a widely used practice, concerned with taking architectural decisions through experiments with lightweight implementations.
+  \item In the article they propose a novel technique for harvesting architectural prototypes from existing systems, "architectural slicing", based on dynamic program slicing.
+  \item Given a system and a slicing criterion, architectural sliding produces an architectural prototype that contains the elements in the architecture that are dependent on the elements in the slicing criterion
+  \item Software Architecture work does not stop once a system has been deployed. New quality attribtutes demands may trigger the wish to change the software architecture to better accommodate such requirements.
+  \item However, experimenting with architectural changes in large systems is usually prohibitively expensive as even minor changes have ripple effects that are costly to fix even though they are unrelated to the architectural challenge.
+  \item \textbf{Architectural Prototype: } is a minimal executing system that only contains the core architectural elements relevant for the architectural issue explored.
+  \item AP has a smaller codebase, the software architect can explore the architectural design space much more freely and faster.
+  \item An \textbf{Architectural slice} of a system is an executable subset of the system. The software architecture of the architectural slice comprises a subset of the software elements and relations of the software architecture of the system, selected according to a \textit{slicing criterion}.
+\end{itemize}
+

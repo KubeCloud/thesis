@@ -1,0 +1,29 @@
+%!TEX root = ../../master.tex
+\section{Fallacies and Antipatterns in Distributed Systems}
+Many problems can occur if challenges are overlooked or wrong assumptions made in distributed systems. Not being aware of the challenges lead to brittleness, fragility, and in resilience terms disruptions and perturbations. Among the sources of disruptions are, according to Mansouri et al, human factors, natural factors, organizational factors, and technical factors \cite[p. 16]{omer2013resilience}. In 1994 eight fallacies often assumed by programmers in distributed computing were identified by Deutsch \cite[p. 1]{rotem2006fallacies}. Despite it is over 20 years ago these fallacies are still sometimes assumed (or overlooked). This is an interplay between human and technical factors in which the lack of knowledge about somewhat predictable technical factors shifts it to a human error. \\
+
+\noindent
+\textbf{Fallacies of distributed computing \cite[p. 1]{rotem2006fallacies}}
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{0.03em}
+  \item The network is reliable.
+  \item Latency is zero.
+  \item Bandwidth is infinite.
+  \item The network is secure.
+  \item Topology doesn't change.
+  \item There is one administrator.
+  \item Transport cost is zero.
+  \item The network is homogeneous.
+\end{itemize}
+
+
+\noindent
+Similar to these fallacies are Nygard's \textit{antipatterns} of recurring undesired patterns in software systems. Many of these patterns are derived from integration points and the non-deterministic behavior of the underlying network. These patterns can be hard to see up front because they first occur when a service is in production. Nygard describes the connection between stability and resilience as:
+
+\begin{citat} []
+"A resilient system keeps processing transactions, even when there are transient impulses, persistent stresses, or component failures disrupting normal processing. This is what most people mean when they just say stability. It’s not just that your individual servers or applications stay up and running but rather that the user can still get work done." \textbf{- Nygard, 2007} \cite[p. 24]{nygard2007release}.
+\end{citat}
+
+\noindent
+Nygard's stability antipatterns are described in Table~\ref{antipatterns}. These antipatterns are potential threats that can be hard to catch with traditional testing procedures. Several of the antipatterns happen in production, and are not that easy or obvious to test in a development environment.

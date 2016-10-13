@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: cat-service
+    visualize: "true"
+  name: cat-service
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: cat-service
+        tier: backend
+        track: stable
+        run: cat-service
+        visualize: "true"
+    spec:
+      containers:
+      - image: rpicloud/demo-cat-service:v1
+        name: cat-service
+  minReadySeconds: 120

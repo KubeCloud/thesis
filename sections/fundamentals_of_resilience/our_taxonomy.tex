@@ -1,0 +1,39 @@
+%!TEX root = ../../master.tex
+\section{Application vs Infrastructure Level Resilience}
+Throughout our work with resilience, we noticed the recurring distinction between application level and infrastructure level resilience. Some measures to improve resilience can be implemented in source code written in e.g. Java and Python. Other measures can be applied at the infrastructure level by handling the applications' surroundings in an intelligent way. Nygard presents several patterns to handle the previously described antipatterns. Some of these patterns will be described and put in the context of application vs. infrastructure level resilience.
+
+\subsection*{Application Level Resilience}
+At the application level, software architecture and implementation are in focus. The software is, of course, run in some environment, but the following will describe general improvements of architectures. \\
+
+\input{sections/fundamentals_of_resilience/patterns}
+
+
+\subsection*{Infrastructure Level Resilience}
+At the infrastructure level, the environment around the application is in focus. The cloud stack described in Figure~\ref{fig:cloud_stack}, from server to runtime, plays an important role when software transitions from developer machines to a production environment. \\
+
+\noindent Docker has decreased the hurdle of recreating the same environment. Encapsulating everything in a lightweight container image assures identical dependencies on developer machines and in the production environment. The hardware and network topology remains different and risk failing in one way or the other. Some of these errors can be handled at the application level, but starting a new process in the environment outside the application requires something from the infrastructure level. \\
+
+\noindent \textbf{Test Harness}
+\\
+A test harness can help prepare for production in addition to existing tests. It is a way to make the application more robust, and whether it belongs to the application level or infrastructure level resilience can be discussed. The idea is to inject faults in the external network calls in the application by calling a malicious server that simulates network errors. The reaction of the system under test will show whether it is "cynical" enough \cite[p. 111]{nygard2007release}. Netflix uses similar concepts presented later in this chapter. \\
+
+\noindent \textbf{Steady State}
+\\
+The last Nygard pattern we will present is Steady state which is a pattern for minimizing human fiddling and keeping servers running without intervention. 
+\begin{citat} []
+Every single time a human touches a server is an opportunity for unforced errors. \textbf{- Nygard, 2007} \cite[p. 100]{nygard2007release}
+\end{citat}
+
+\noindent Compared to the previously mentioned human factor, this is about minimizing the risk of the human factor in the production environment. A similar concept is found from continuous integration in which "hurtful" tasks are automated and thereby become less error-prone. The quote behind this is: \textit{"if it hurts, do it more often"} \cite{fowler2011frequencyreducesdifficulty}. This results in a declarative definition of how to perform a challenging task instead of relying on memory. \\
+
+\noindent \textbf{Replication and Redundancy} \\
+If a service instance crashes or fails, an action must be taken. In this regard, fault tolerance and redundancy can switch to a backup instance. A resilient reaction when an instance fails is replacing the failed replica (instance) with a new one. By running redundant instances, service failures can be mitigated. \\
+
+\noindent
+Replication also serves the purpose of improved performance by adding a horizontal load balancer in front of multiple replicas. In this way, a given workload is distributed across several replicas. The performance can be improved by adding more replicas. \\
+
+\noindent
+These mechanisms are obtained at the infrastructure level, and a cluster management system such as Kubernetes can maintain a number of running replicas. In Kubernetes, a desired state can be specified. A control loop then measures the observed state and compares it to the desired state. If the two states are unequal, an action will be triggered to align the two states. In this case, the infrastructure must provide a mechanism for only directing traffic to the 'healthy' replicas. Directing the traffic is related to \textit{rapidity} which refers to how fast an error is identified and an action taken. An experiment in how Kubernetes handles this will be performed in Section~\ref{sec:exp_replication}.\\
+
+\noindent \textbf{Master Election} \\
+High availability (HA) systems require resilience. Single point of failure does not harmonize with resilience. When running a cluster management system, such as Kubernetes or Mesos, the concept of a master is used. To ensure availability when a master, for some reason, disappears a strategy to elect a new master is needed. The concept is: the current leader sends out a heartbeat to maintain the position as the leader while several candidates race to become the leader \cite{kubernetesio}. The difficult part is reaching consensus, and several tools such as ZooKeeper, etcd and Consul exist for this purpose. We will not focus more on this topic throughout the thesis, but it is an important part of ensuring high availability. 

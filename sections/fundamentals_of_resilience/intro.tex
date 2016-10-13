@@ -1,0 +1,23 @@
+%!TEX root = ../../master.tex
+\begin{theorem}
+    Microservices have introduced the non-determinism of distributed network communication. It is therefore of utmost importance to understand the complexities of distributed systems to build resilient systems. 
+    
+\end{theorem}
+
+\noindent
+Google's \textit{Site Reliability Engineering - How Google Runs Production Systems} and Nygard's \textit{Release It! - Design and Deploy Production-Ready Software} try to shift the traditional focus of design and development towards systems in production.
+
+\begin{citat} []
+ "Software design as taught today is terribly incomplete. It talks only about what systems should do. It doesn’t address the converse—things systems should not do." \textbf{- Nygard, 2007} \cite[p. 1]{nygard2007release}
+\end{citat}
+
+\noindent
+Nygard describes a lack of focus on how to run systems in production. 
+Even if a system is perfectly designed and built, the software does not bring any value unless it is available. Beyer et al agree with this and further add the analogy below.
+
+\begin{citat} []
+ "Software engineering has this in common with having children: the labor before birth is painful and difficult, but the labor after the birth is where you actually spend most of your effort. Yet software engineering as a discipline spends much more time talking about the first period opposed to the second, despite estimates that 40-90\% of the total costs of a system are incurred after birth." \textbf{- Beyer et al (Google), 2016} \cite[p. xv]{beyer2016site}
+\end{citat}
+
+\noindent
+We will throughout this chapter try to define the term resilience and describe how to handle the fact that failures eventually will happen. Embracing and designing for failure are the new mantras.

@@ -1,0 +1,74 @@
+%!TEX root = ../../master.tex
+
+\subsection*{Experiment 2.2 - Infrastructure level}
+
+Kubernetes provides the infrastructure of the experiments conducted in this present master thesis. This section will focus on the effects of replication provided by Kubernetes, furthermore we will examine the health check ability of Kubernetes in order to determine the recovery time. \\
+
+\noindent\textbf{Testapplication} \\
+The application used in the following experiments consist of a simple Spring Boot application returning a string. This application is packaged as a Docker image and deployed to Docker Hub. This allows for easy reproduction of the experiment, since the Docker image can be fetched and run in the same way every time.
+
+
+\subsubsection*{Experiment 2.2.1 - The effects of replication}
+
+To ensure reproduceable experiments, scripts are created to run the experiments. This ensures that the same steps are always taken during the execution of the experiments. Listing~\ref{lst:effects_of_replication} shows an example of the test script for running the effects of replication experiments. Running the script takes the host as input and can easily be directed against other hosts or clusters.
+
+\lstinputlisting[language=Bash,label={lst:effects_of_replication}, caption={Script: Effects of replicas (example)}]{scripts/example_replicatest.sh}
+
+
+\subsubsection*{Experiment 2.2.2 - Recovery time} 
+
+\renewcommand*{\arraystretch}{1.8}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\begin{longtable}{@{\extracolsep{\fill}}|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} \textbf{Sucess rate} & \textbf{Iteration 1} & \textbf{Iteration 2} & \textbf{Iteration 3} & \textbf{Average}\\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Iteration 1} & \textbf{Iteration 2} & \textbf{Iteration 3} & \textbf{Average}\\
+\hline
+\endhead
+\hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\caption{Distribution of response types}
+\endfoot
+\hline
+\caption{Rate=100 (total of 18,000 requests)}
+\label{circuit_breaker_table}
+\endlastfoot
+
+\textbf{replicas=1} & 73.93\% (13,307/4,693) & 73.93\% (13,307/4,693) & 76.09\% (13,696/4,304) & \textbf{74.65\% (13,437/4,563)} \\ \hline
+\textbf{replicas=2} & 99.89\% (17,980/20)& 99.86\% (17,975/25) & 99.87\% (17,977/23) & \textbf{99.87\% (17,977/23)} \\ \hline
+\textbf{replicas=5} & 99.99\% (17,998/2) & 99.97\% (17,994/6) & 99.98\% (17,996/4)  & \textbf{99.98\% (17,996/4)} \\ \hline
+\end{longtable}
+
+
+\renewcommand*{\arraystretch}{1.8}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\begin{longtable}{@{\extracolsep{\fill}}|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} \textbf{Sucess rate} & \textbf{Iteration 1} & \textbf{Iteration 2} & \textbf{Iteration 3} & \textbf{Average}\\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Iteration 1} & \textbf{Iteration 2} & \textbf{Iteration 3} & \textbf{Average}\\
+\hline
+\endhead
+\hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\caption{Distribution of response types}
+\endfoot
+\hline
+\caption{Rate=200 (total of 36,000 requests)}
+\label{circuit_breaker_table}
+\endlastfoot
+
+\textbf{replicas=1} & 74.26\% (26,735/9,265) & 71.03\% (25,569/10,431) & 72,95\% (26,262/9,738) & \textbf{72.75\% (26,189/9,811)} \\ \hline
+\textbf{replicas=2} & 99.86\% (35,949/51)& 99.90\% (35,963/37) & 99.88\% (35,958/42) & \textbf{99.88\% (35,957/43)} \\ \hline
+\textbf{replicas=5} & 99.99\% (35,996/4) & 99.99\% (35,998/2) & 99.97\% (35,988/12)  & \textbf{99,98\% (35,994/6)} \\ \hline
+\end{longtable}
+

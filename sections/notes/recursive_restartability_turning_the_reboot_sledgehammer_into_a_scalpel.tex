@@ -1,0 +1,49 @@
+%!TEX root = ../../master.tex
+\section{Recursive Restartability: Turning the Reboot Sledgehammer into a Scalpel, Candea, Fox, 2001}
+
+\begin{itemize}
+	\item Even after decades of software engineering research, complex computer systems still fail, primarily due to nondeterministic bugs that are typically resolved by rebooting.
+	\item Heisenbugs will remain a fact of life
+	\item \textbf{Recursive Restartability:} the ability of a system to gracefully tolerate restarts at multiple levels - improves fault tolerance, reduces time-to-repair, and enables system designers to build flexible, highly available software infrastructures. 
+	\item The rebooting "technique" has been around as long as computers themselves, and remains a fact of life for substantially all nontrivial systems today.
+	\item Deadlock resolution in commercial database systems is typically implemented by killing and restarting a deadlocked thread in hopes of avoiding a repeat deadlock. 
+	\item A major search engine periodically performs rolling reboots of all nodes in their search engine cluster.
+	\item Rebooting is often only a crude "sledgehammer" for maintaining system availability, its use is motivated by two common properties:
+	\begin{itemize}
+		\item Restarting works around Heisenbugs
+		\item Restarting can reclaim stale resources and clean up corrupt state
+	\end{itemize}
+	\item We argue that in an appropriately designed system, we can improve overall system availability through a combination of reactively restarting failed components (revival) and prophylactically restarting functioning components (rejuvenation) to prevent state degradation that may lead to unscheduled downtime.
+	\item An alternate definition of RR is provided by the recursive contruction: the base case RR system is a restartable software component: a general RR system is a composite of RR systems that obeys the guidelines of section 4. 
+	\item Properties of RR
+	\begin{itemize}
+		\item RR improves fault tolerance
+		\item RR can make restarts cheap
+		\item RR provides a confidence continuum for restarts
+		\item RR enables flexible availability tradeoffs
+	\end{itemize}
+	\item "The overarching theme is that of designing applications as loosely coupled distributed systems, even if they are not distributed in nature."
+	\item \textbf{Accepting no for an answer:} Software components should be designed such that they can deny service for any request or call.
+	\item \textbf{Using reconstructable soft state with announce/listen protocols: } 
+	\begin{itemize}
+  		\item Announce/listen makes the default assumption that a component is unavailable unless it says otherwise
+  		\item Soft state can provide information that will carry a system through a transient failure of the authoritative data source for that state.
+	\end{itemize}
+	\item \textbf{Automatically trading precision or consistency for availability: }
+	\begin{itemize}
+		\item Inter-component "glue" protocols should allow components to make dynamic decisions on trading consistency/precision for availability, based on both application specific consistency/precision measures, and a consistency/precision utility function.
+	\end{itemize}
+	\item \textbf{Structuring applications around fine grain workloads}
+	\begin{itemize}
+		\item "Glue" protocols should enforce fine grain interactions between subsystems. They should provide hooks for computing the cost of a subsystem's restart based on the expected duration of its current task and its children's tasks.
+	\end{itemize}
+	\item \textbf{Using orthogonal composition axes: }
+	\begin{itemize}
+		\item Independt subsystems that do not require an understanding of each other's functionality are said to be mutually orthogonal.
+		\item Split functionality along orthogonal axes. Each corresponding subsystem should be centered around an independent locus of control, and interact with other subsystems via events posted using an asynchronous mechanism.
+	\end{itemize}
+	\item Availability benchmarking has been of interest only for the pas decade.
+	\item "A fast system that is hung or crashed is simply an infinitely slow system"
+	\item \textbf{Conclusion: } We proposed a turning the reboot from a demonic concept into a reliable partner in the fight against system downtime, given that it is a time-tested, effective technique for circumventing Heisenbugs.
+
+\end{itemize}

@@ -1,0 +1,34 @@
+%!TEX root = ../../master.tex
+\section{System Resilience Modeling and Enhancement for the Cloud, Tu, Xu, 2013}
+
+\begin{itemize}
+	\item It has become increasingly evident that large scale systems such as clouds can be brittle and may exhibit unpredictable behavior when faced with unexpected disturbances
+	\item \textbf{Goal:} The goal of this research is to explore the fundamental theories that govern cloud system resilience and to provide novel and effective mechanisms to model and enhance the resilience of cloud.
+	\item Cloud computing has emerged as a new computing paradigm that delivers highly reliable and elastic services to satisfy users' dynamic demands in the internet environment.
+	\item The "pay-as-you-use" business model and computing elasticity have attracted huge attention from business and organizations. 
+	\item With all the enthusiasm and excitement on the huge payoff cloud can bring into the computing world, there are still hesitations and reluctances on adopting cloud computing  due to the low confidence on the sustainability to failures, security threads, operation and design mistakes.
+	\item Cloud computing centralizes the management of many decentralized data centers across the world.
+	\item This vendor driven monoculture has achieved much higher degree of efficiency than traditional data centers and make it extremely attractive in cost efficiency.
+	\item A fundamental problem is usually overlooked such that the cloud system is designed and implemented to achieve high robustness under a small range of expected disturbances. 
+	\item A sustainable system are inherent resilient and thus a sustainable complex computing system should be designed with resilience, which is defined as the amount of disturbance that a system can survive without changing system state, including systems ability to absorb, be adaptive to, and to recover from the disturbance.
+	\item \textbf{Objectives}
+	\begin{itemize}
+		\item The interactions among processes in the cloud will be modeled as a multi-level resource consuming hierachy.
+		\item Components of the cloud will be modularized as autonomous sub systems and the effects of de-coubling  of system components on system resilience will be analyzed
+		\item A systematic approach will be developed to analyze and enhance system disturbance resilience for the cloud.
+		\item Tradeoffs among system resilience, robustness, efficiency, and performance will be investigated and effective resilience enhancement mechanisms will be developed.
+	\end{itemize}
+	\item System resilience is related to system robustness. Resilience emphasizes system conditions that are far from any stable steady-state, where disturbances can shift a system from one regime of behavior to another i.e. to another stability domain.
+	\item Robustness is defined as the capacity of a system to maintain performance when subjected to disturbances and can only maintain narrow band of states when exposed to disturbances
+	\item The resilience of a system is a property very difficult to measure since it could be affected by many factors, and the strength of resilience can only be demonstrated whenever there is an unexpected strong enough disturbance
+	\item To improve resilience, a straightforward approach is to provide extremely high redundancy of the resources consumed.
+	\item If a cloud is designed with too much redundancy, then it will sacrifice too much cost efficiency
+	\item An ideal resilient cloud should be designed with the balance of the two.
+	\item \textbf{UNDERSØG Queueing models! M/M/K} 
+	\item Modularity has played critical roles in system robustness and resilience in biological systems. A modularized system can provide strong resilience since local failures can be isolated and contained.
+	\item Modularity on cloud resilience is illustrated by using an \textit{epidemic replica consistency control protocol}
+	\item Data objects can be replicated across the cloud to serve user access and the consistency of replicas can be controlled by using an epidemic based lazy update protocol which could introduce inconsistent updates.
+	\item A preliminary conclusion can be drawn that modularization is very effective on the improvement of system resilience to unintentional disturbances.
+	\item Modularization have great potential on the system resilience enhancement, inappropriate modularization may create new barriers for communications among modularized sub systems.
+	\item Appropriate redundancy on components and pathways is critically needed.
+\end{itemize}

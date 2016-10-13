@@ -1,0 +1,37 @@
+%!TEX root = ../../master.tex
+\section{Evaluating the Monolithic and the Microservice Architecture Pattern to Deploy Web Applications in the Cloud, Villamizar et al., Gil, 2015}
+
+\begin{itemize}
+  \item \textbf{Contribution: } The article presents a case-study where an enterprise application was developed and deployed in the cloud using a monolithic approach and a microservice architecture using the play framework. They show the results of performance tests executed on both applications, and describes the benefits and challenges.
+  \item Scaling monolithic applications is a challenge because they commonly offer a lot of services. Many of these use application stacks that was not designed for the ability to add/remove servers.
+  \item The continous delivery methodology allow companies to change and update their applications in production continuously using agile development methodologies and cycles.
+  \item In a monolithic application all services are developed on a single codebase shared among multiple developers, when these developers want to add or change services they must guarantee that all other services continue working.
+  \item A monolithic deployment represents a single point of failure; if the application fails the whole set of services goes down.
+  \item The microservice architecture pattern allows companies to innovate quickly, reduce complexity, scale computing resources efficiently and grow development teams in a controlled way.
+  \item ESBs can become bottlenecks, generating high latencies and providing a single point of failure.
+  \item ESB was not designed with the cloud in mind so its difficult to add or remove servers to them on demand.
+  \item The microservice architecture pattern has emerged as a lightweight SOA.
+  \item Microservices commonly expose their services to gateways (not to end-users) and gateways typically do not have persistence layers.
+  \item The microservice pattern avoids the single point of failure and allow the use of continous delivery strategies due to that each new deployment only affect the service.
+  \item \textbf{Results:}
+  \begin{itemize}
+  	\item Performance
+  	\begin{itemize}
+  		\item They use JMeter to do performance testing
+  		\item \textbf{Conclusion:} Microservices does not impact considerably the latency of the responses due to the use of more hosts.
+	\end{itemize}
+	\item Development methodology and efforts
+	\begin{itemize}
+  		\item The design, documentation and publication of REST API is very important to allow that services published by the microservices can be easily consumed by gateways, and services published by gateways can be easily consumed by end-user applications.
+  		\item They validated during their development process that microservices introduce many problems of distributed systems (failures, timeouts, distributed transactions, data federation, responsibility assignements etc.)
+  		\item These problems has to be handled at application level in a microservice architecture opposite monolithic applications that delegates this to the application container (IIS, JBOSS etc.) 
+	\end{itemize}
+	\item Deployment, scaling, and continous delivery
+	\begin{itemize}
+  		\item In microservice architectures it is very important to maintain service versioning. 
+	\end{itemize}
+
+
+  \end{itemize}
+
+\end{itemize}

@@ -1,0 +1,29 @@
+%!TEX root = ../../master.tex
+\section{Optimizing Quality of Resilience in the Cloud, Sousa, Pentilkousis, Curado, 2014}
+
+\begin{itemize}
+	\item Quality of Resilience (QoR) is natively connected to cloud computing to enable high-availability of services and secure access to information.
+	\item Cloud -> Such a dynamic environment
+	\item Purpose of the paper: Proposal of multiple criteria that assess the performance of services operating in the cloud to trigger proactive resilient mechanisms.
+	\item Multiple Attribute Decision Mechanisms (MADM) to optimize quality of resilience.
+	\item Stream Control Transport Protocol (SCTP) - one path as primary -> other paths acting as backups. Includes keep-alive mechanisms
+	\item In the cloud context, the anomaly-detection algorithm augments the keepalive mechanism by detecting resource-contention on the server using lightweight computations of the Pearson correlation coefficient on Operating System metrics.
+	\item Multiple Attribute Decision Mechanisms (MADM), such as MeTH and TOPSIS can act as proactive mechanisms to enhance QoR.
+	\item Reconfiguration mechanisms are important in the cloud to enable resilience by maximizing availability of services.
+	\item Common proposals evaluating the performance of cloud architectures are based on very specific metrics, such as security or only assess the performance of availability in the presence of two types of failures, namely, critical and warning.
+	\item When considering the reconfiguration process in the cloud, transport protocols cannot be omitted as they can enable fast-reconfiguration.
+	\item The reliable server pool architecture employs SCTP to enable server redundancy and session failover.
+	\item Resilience by itself is characterized by several metrics, such as availability and security. 
+	\item Mechanisms aiming to maximize quality of resilience must consider these criteria as well as common network metrics, such as path capacity, one way delay and packet loss.
+	\item A nodes stability can be a assessed by whether it is faulty or overloaded. Such stability is determined by correlation analysis relying on CPU usage, memory and network usage metrics.
+	\item Optimal QoR is a NP-Hard problem, which can be solved through MADM techniques, such as TOPSIS and MeTH.
+	\item Such techniques work by assigning scores to the different alternatives, which can correspond to servers.
+	\item The score establishes the ranking of servers, which states the one that has the best quality in terms of resilience.
+	\item Ranking is determined in multiple steps, which comprehend normalization of values, weighting, determination of ideal values and the respective distance to such values.
+	\item To enable the highest quality of resilience, clients connect to distinct servers in the cloud, where content is replicated.
+	\item Results: TOPSIS in some scenario chose the worst possible server, whereas MeTH chose the optimal server consistently
+	\item Experiments have been done with transferring of CD and DVD size images data load and with introduction of different failure scenarios.
+	\item Conclusion: Resilience is supported in cloud architectures by employing redundant connections and by duplicating resources or information.
+	\item SCTP-protocols with failure-protection is not able to detect certain types of failures (e.g. resource failures) leading to unacceptable performance regarding transfer time and correct server usage ratio.
+	\item MADM mechanisms like TOPSIS and MeTH are able to improve recovery mechanism of SCTP by reacting  to wide range of failures.
+\end{itemize}

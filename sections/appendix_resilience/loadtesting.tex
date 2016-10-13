@@ -1,0 +1,81 @@
+%!TEX root = ../master.tex
+\chapter{Load and Stress Testing}
+\label{appendix:d_resilience}
+
+The appendix will provide an overview of load and stress testing and present the used technologies within this master's thesis. The definitions of load and stress testing are as follows.
+
+\begin{definition} [Load testing\footnote{http://searchsoftwarequality.techtarget.com/answer/Understanding-performance-load-and-stress-testing}]
+ A load test is a test focused on determining or validating performance characteristics of the software under test when subjected to workload models and load volumes anticipated during production operations
+\end{definition}
+
+\begin{definition} [Stress testing\footnote{http://searchsoftwarequality.techtarget.com/answer/Understanding-performance-load-and-stress-testing}]
+ A stress test is a test focused on determining or validating performance characteristics of the software under test when subjected to workload models and load volumes beyond those anticipated during production operations.
+\end{definition}
+
+\noindent As stated by the to definitions the difference between load and stress testing is the amount of load we put on the system based on what we anticipate to be production load volumes. 
+
+\noindent Both types of tests have been performed within this thesis'. In order to apply load to the cluster, some tools has has to be applied. We have been working with two different load testing tools; Vegeta and Gatling.io
+
+
+\section*{Vegeta}
+Vegeta is a versatile HTTP load testing tool built out of a need to drill HTTP services with a constant request rate. It can both be used as a command line utility and a library. Vegeta comes packed with a lot of options devided into three main commands, which are; attack, report, and dump. Examples of the usage of the command line tool can be seen in Listing~\ref{lst:vegeta_examples}
+\lstinputlisting[language=bash,label={lst:vegeta_examples}, caption={Vegeta Examples}]{scripts/vegeta}
+
+\noindent Vegeta has been used in the experiments described in Chapter~\ref{chapter_experiment2_resilience}.
+
+\section*{Gatling.io}
+Gatling is another tool for doing load and stress testing. Instead of specifying a specific endpoint to shoot down, you record one or more scenarios of a user and create testing around that. Gatling is built in Scala with Akka framework, and it requires a Java.\\
+
+\noindent Gatling comes with a recorder script that launches a GUI for specifying settings you want for your recording. An example of a configuration could be to not request all external images or similar. A proxy to the recorder tool has to be configured in the browser that are used in the recording. \\
+
+\noindent When the recording starts and you chose the scenario that has to be replayed in the attack, Gatling.io watches all network calls and creates a Scala file containing all network requests. When the recording is finished, Gatling can be configured to run a number of active users at once, or simulate ramp-up periods with a specific duration. There exist many different possibilities for simulating realistic load activity.
+
+
+% \renewcommand*{\arraystretch}{1.8}
+% \setlength\LTleft{0pt}
+% \setlength\LTright{0pt}
+% \begin{longtable}{@{\extracolsep{\fill}}|p{4cm}|p{10.5cm}|} 
+% \hline
+% \rowcolor[HTML]{EFEFEF}\textbf{Stability antipattern} & \textbf{Description}  \\
+% \hline
+% \endfirsthead
+% \multicolumn{2}{c}%
+% {\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+% \hline
+% \rowcolor[HTML]{EFEFEF}\textbf{Stability antipattern} &\textbf{Description}  \\
+% \hline
+% \endhead
+% \hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+% \caption{Stability Antipatterns, Michael T. Nygaard, "Release It!"\cite{nygard2007release}}
+% \endfoot
+% \hline
+% \caption{Stability Antipatterns, Michael T. Nygaard, "Release It!"\cite{nygard2007release}}
+% \label{antipatterns_all}
+% \endlastfoot
+% \textbf{Integration Points}     & Almost every system within the cloud depends on other applications. Integration points are the number one killer of systems. Every single on of those feeds presents a stability risk. Every socket, process, pipe or remote procedure call can and will hang. Even database calls can hang, in ways obvious and subtle. \\ \hline
+% \textbf{Chain Reactions}        & A chain reaction occurs when there is some defect in an application - usually a resource leak or a load-related crash. If your system scales horizontally (adding capacity by adding servers), then you will have load-balanced farms or clusters where each server runs the same application. This gives you fault tolerance through redundancy. However if one machine crashes the remainders need to continue serving transactions. This increases the load and the like-li-hood of further server crashes.                                                                                                                                                                                                                                                                                                                         \\ \hline
+% \textbf{Cascading Failures}     & A cascading failure occurs when a crack in one layer triggers a crack in a calling layer. Cascading failures require some mechanism to transmit the failure from one layer to another. Cascading failure often result from resource pools that get drained because of a failure in a lower layer. Integration Points without Timeouts is a surefire way to create Cascading Failures. Cascading failures are the number-one crack accelerator. Preventing cascading failures is the very key to resilience.                                                                                                                                                                                                                                                                                                                          \\ \hline
+% \textbf{Users}                  & The human users of a system have this knack for creative destruction. Human users have a gift for doing exactly the worst possible thing at the worst possible time. Every user consumes some system resources. As traffic grows, it will eventually surpass your capacity. One such hard limit is memory available. Users also includes unwanted users or malicious users that will try to take your system down.                                                                                                                                                                                                                                                                                                                        \\ \hline
+% \textbf{Blocked Threads}        & Adding complexity to solve one problem creates the risk of entirely new failure modes. Multithreading makes application servers scalable enough to handle the web's largest sites, but it also introduces the possibility of concurrency errors. Blocked threads can happen anytime you check resources out of a connection pool, deal with caches or object registries, or make calls to external systems. Third-Party libraries are notorious sources of blocking threads. A blocked thread is often found near an integration point. They can quickly lead to chain reactions.                                                                                                                                                                                                                                                                                                                         \\ \hline
+% \textbf{Attacks of Self-Denial} & A self-denial attack describes any situation in which the system - or the extended system that includes humans - conspires against itself. The classic example of a self-denial attack is the email from marketing to a "select group of users" that contains some privileged information or offer. Any special offer meant for a group of 10.000 users is guaranteed to attract millions.                                                                                                                                                                                                                                                                                                                          \\ \hline
+% \textbf{Scaling Effects}        & We run into scaling effects all the time. Anytime you have a "many-to-one" or "many-to-few" relationship, you can be hit by scaling effects when one side increases. For instance, a database server that holds up just fine when two application servers call it might crash miserably when you add the next eight application servers. Development environments are rarely replications of production sizing, it can be hard to see where scaling effects will bite you.                                                                                                                                                                                                                                                                                                                         \\ \hline
+% \textbf{Unbalanced Capacities}  & In fixed multitiered systems that rely on other applications in the enterprise, the systems capacity can change over time. The setup is fixed, an adding extra hardware for spikes may not be feasible. \textbf{This problem has been eliminated by virtualization?! and cheap autoscaling capabilities offered by cloud providers}                                                                                                                                                                                                                                                                                                                          \\ \hline
+% \textbf{Slow Responses}         & Generating a slow response is worse than refusing a connection or returning an error, particularly in the context of middle-layer services in an SOA (Service Oriented Architecture). Slow responses usually result from excessive demand. A slow response ties up resources in the calling system and the called system. Memory leaks often manifest via Slow Responses, as the virtual machine works harder and harder to reclaim enough space to process a transaction. Slow responses tend to propagate upward from layer to layer in a gradual form of cascading failures.                                                                                                                                                                                                                                                                                                                          \\ \hline
+% \textbf{SLA Inversion}          & A service-level agreement (SLA) is a contractual agreement about how well the organization must deliver its services. These are quantitative measures of service delivery with financial penalties if the service provider does not meet them. When a system rely on other services the SLA becomes dependent on external dependencies. The best possible SLA is the joint probability of all external dependencies.                                                                                                                                                                                                                                                                                                                        \\ \hline
+% \textbf{Unbounded Result Sets}  & A common structure in many applications are sending a query to the database and then loop over the result set, processing each row. But what happens if suddenly the database returns 5.000.000 elements?  Unless your application explicitly limits the number of results it is willing to process, it can end up exhausting its memory or spinning in a while loop long after the user loses interest. Unbounded result sets are a common cause of slow responses.   
+% \end{longtable}
+
+
+% \subsection*{The Netflix Simian Army}
+% \noindent \textbf{FIX antifragility reference, very innovative take on stability}
+% \\
+% As mentioned Netflix has been one of the pioneers in the transition to microservice architecture and embracing the possibilities of this distributed architecture. But transitioning into the world of distributed systems in a web-scale environment introduceres a lot of potential failures. And failures will happen all the time; disks will fail (backup too), power will go down, software will contain bugs, human errors will occur, etc. Netflix realizes this and design for failure by proper exception handling, auto-scaling clusters, uses redundancy, fault tolerance and isolation, use fall-backs and instead of not being able to serve a user, instead giving a degraded service if possible. But, how do they know that all of this will actually work in a production environment? For that, Netflix have build a set of tools called the "Simian Army". 
+% \begin{center}
+% 	\includegraphics[width=8cm]{figures/simianarmy}
+% \end{center}
+
+% \noindent The "Simian Army" is all about embracing failures and acknowledging that failures will eventually happen to be able to improve the overall quality and availability. Distributed systems are hard, especially in massive web-scale systems that feature complex interactions, all while innovating and putting new things in production. The Netflix eco-system is not a static environment, new versions of services are deployed multiple times a day making it a very dynamic environment. Because of this dynamic environment taking a snapshot of the system at any given point in time is almost impossible, and this snapshot will be invalid few seconds later. Instead Netflix embraces failures and have a strategy that includes what is called 'Destruction testing' and the main idea is that they do not want to wait for random failures. Instead Netflix tries to cause failures in their production and testing design assumptions by stressing them. All of this is implemented to reduce uncertainty by forcing failures regularly. The tool used for this is called Chaos Monkey \footnote{https://github.com/Netflix/SimianArmy/wiki/Chaos-Monkey}. Basicly Chaos Money is letting a virtual monkey lose in the production environment, pulling cables, smashing boxes trying to stress the system. Chaos Monkey is run on a day to day basis in normal work hours to make sure that an employee can fix the problem right away, instead of getting called in during the night. Netflix have been running Chaos Monkey in production for a couple of years and have learned that; state is problematic, auto-replacement of unhealthy applications work, and being able to survive a single instance failure is not enough.
+% \\ \\
+% As mentioned Netflix has an entire Army with different responsibilities of introducing errors. Chaos Gorilla is a tool that can be used to simulate an availability zone outage, to ensure that the rest of the zones can handle the extra load. Chaos Kon is another tool that can take out an entire region. Netflix also use tools for fx. injection latency into a specific services to see the how dependent services reacts to latency. Netflix has a whole toolbox for introducing different Network problems to test interactions between services.
+% \\ \\
+% Fault-injection testing (FIT) reduces the uncertainty in a distributed system, because of proactive nature of this approach. Continous resilience testing in test scenarios and production is not enough. This is just a part of the multi-faceted approach to improve system resilience. This approach also contains practices such as contionuous build, delivery, and deployment. Leveraging the test environments, infrastructure and coverage. Moreover real-time analytics, detection, alerting are important parts to this approach as well together with tools to gain operational insights such as dashboards, reports, etc.

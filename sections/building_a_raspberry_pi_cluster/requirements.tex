@@ -1,0 +1,21 @@
+%!TEX root = ../../master.tex
+\section{Requirements for a Learning Object}
+In order to specify the requirements for KubeCloud, we must understand the constraints. The course budget constrained the total cost to DKK 13,000 (USD \$1.957\footnote{DKK-USD currency: 664}). The budget should allow for a minimum of five clusters (20 students with four students per cluster) to be handed out. Another major constraint is the limited implementation time before the course start (thesis start: January 25th, 2016; course start: April 7th, 2016). Before the implementation, a set of requirements are specified for KubeCloud within the limited constraints:
+
+\begin{itemize}
+\setlength\itemsep{0.05em}
+  \item KubeCloud shall be tangible and allow for practical hands-on experimentation
+  \item KubeCloud shall allow for deployment of microservice architecture
+  \item KubeCloud shall allow for containerization with Docker
+  \item KubeCloud shall allow for container management with Kubernetes
+  \item KubeCloud shall allow students to pull out cables to inject failures
+  \item KubeCloud shall be able to visualize the state of the cluster
+  \item KubeCloud shall visually have characteristics of a server rack
+  \item KubeCloud shall be transportable 
+  \item KubeCloud shall have a small physical form factor and be able to be carried around in a bag
+  \item KubeCloud shall allow for shutdown and restart with a frequency twice a week
+  \item KubeCloud shall allow for configuration of the cluster size
+\end{itemize}
+
+\noindent
+The following sections will describe and discuss the choices made in order to satisfy these requirements.

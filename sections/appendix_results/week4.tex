@@ -1,0 +1,264 @@
+%!TEX root = ../../master.tex
+\textbf{Week 4 reflection}
+
+%%%% Q1
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 1: Describe in your own words what resilience is and provide a couple of examples.}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 1: Describe in your own words what resilience is and provide a couple of examples.}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 1: Describe in your own words what resilience is and provide a couple of examples.}
+\endfoot
+\caption{Question 1: Describe in your own words what resilience is and provide a couple of examples.}
+\label{w4_q1}
+\endlastfoot
+
+1 & Resilence is a systems ability to withstand a blow from an internal or external source. This means that a sudden failure somewhere in the system should not bring down the entire system, but only parts of it. Another part of resilience is a systems ability to reenter a state where the system is fully functional.  \\ \hline
+
+2 & The ability to get hit hard and get back up and keep going :p
+
+\noindent Tough to bring down and restores itself in case of failiure. \\ \hline
+
+3 & Resillience is that a system does not collapse when something unexpected occurs, or that it can gracefully recover from an error. \\ \hline
+
+4 & Reslience is a systems ability to recover from damage. An example could be a web servers ability to recover from 200 http requests pr. second for 3 minutes. \\ \hline
+
+5 & Resilience is about how we recover if an error occurs in our system and how we prevent the whole system breaks as well.
+
+\noindent If for example an order service goes down because of an increased amount of traffic we would still like to serve our customers with other parts of the application (catalog etc) until the service is ready again. One way to help the order service to recover a circuit breaker could be implemented to minimize the number of requests until it's up and running again.
+
+\noindent Another way to handle resilience is to have multiple replicas of a given service such that the increased traffic can be distributed between multiple machines. \\ \hline
+ 
+6 & resilience is a systems ability to withstand and recover from problems and continue to provide the best service possible. These problems could be servers or services crashing, slow responses from services, network errors \\ \hline
+
+7 & Resilience is the ability of an application to recover from breakdowns and possibly become in a better state than before hand.
+
+\noindent An example could be a web API locating resources on a database server. If a connection error to the database occurs the web API should not explode, instead it should have a recovery strategy and some alternative responses could be returned to the clients. \\ \hline
+
+8 & If a program or machine crashes or dies, a resilient system wil get up and running full pace again by it self.  \\ \hline
+
+9 & A sytems ability to bounce back after errors. an example could be providing a customer with top 50 items, if fetching the recommended items fail. \\ \hline
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Unistructural} \\ 
+\end{longtable}
+\normalsize
+
+
+
+%%%%% Q2
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 2: How did circuit breakers and replications affect the resilience of the services in the workshop?}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 2: How did circuit breakers and replications affect the resilience of the services in the workshop?}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 2: How did circuit breakers and replications affect the resilience of the services in the workshop?}
+\endfoot
+\caption{Question 2: How did circuit breakers and replications affect the resilience of the services in the workshop?}
+\label{w4_q2}
+\endlastfoot
+
+1 & The increased the resilience of the services. \\ \hline
+
+2 & circuit breakers speed up the response if part of the cluster (hardware or software) fail to responde and thereby improve the user experience and stop crashes from overload from cascading. Having multiple replications of a service enables the cluster to give valid responses if a service goes down. \\ \hline
+
+3 & they increased uptime during heavy loades by ALOT \\ \hline
+
+4 & Circuit breakers made the services fail faster. \\ \hline
+
+5 & The resilience of the system was drastically improved when running multiple replicas due to the systems ability to reroute work to the running pods when one was down, while the system rebooted the replica on another pod. The circuit breakers also contributed in making sure the system does not wind up in a deadlock or state where no request can be processed. \\ \hline
+
+6 & A circuit breaker will make a part of the system not work, instead of the whole system. An examble is that if the favorites function in netflix is down, all of netflix should not be down. A small part of service is better than no service! \\ \hline
+
+7 & circuit breakers and replications make the services in the workshop more resilient \\ \hline
+
+8 & They decreased the outage of the service drastically. When there was circuit breakers between all services, the outage was close to 0\%.
+
+\noindent The replications decreased the outage period as well. With 5 pods, the requests was instantly picked up by a running server, when a pod was disconnected. \\ \hline
+
+9 & Circuit breakers resulted in a delayed response from the services but helped them recover. 
+
+
+\noindent Multiple replicas helped to keep serving requests even though one of the machines got disconnected and which also resulted in faster responses than with circuit breakers.\\ \hline
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Unistructural} \\ 
+\end{longtable}
+\normalsize
+
+
+%%%%% Q3
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 3: 
+How did the workshop help you understand this week’s topic?}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 3: 
+How did the workshop help you understand this week’s topic?}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 3: 
+How did the workshop help you understand this week’s topic?}
+\endfoot
+\caption{Question 3: 
+How did the workshop help you understand this week’s topic?}
+\label{w4_q3}
+\endlastfoot
+
+1 & The workshop was well described, and for the most part helped explain what happened in the different parts. I would have perfered though that since there were several "what is happening here?" parts in the exercise, some "hint: think about this" would have been nice. \\ \hline
+
+2 & It helped a lot. I were nice to see what actually happened when a machine were disconnected and how that affects the system. 
+
+\noindent Kubernetes is really a brilliant system ;-) \\ \hline
+
+3 & fine. \\ \hline
+
+4 & it helped just fine \\ \hline
+
+5 & helped me understand how much you can gain from using replications and circuit breakers \\ \hline
+
+6 & It provided visualizations and practical experience with circuitbreakers and replications in case of errors/crashes \\ \hline
+
+7 & The graphs were functional in seeing how replicas, attack rate and circuit breakers are involved. \\ \hline
+
+8 & A nice practically workshop with simple tasks showing the power of circuit breakers and replications. \\ \hline
+
+
+\multicolumn{2}{r}{\textbf{Evaluation:} -} \\ 
+\end{longtable}
+\normalsize
+
+
+
+
+%%%%% Q6
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 6: For what purposes would you use unit testing, load testing and stress testing respectively?}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 6: For what purposes would you use unit testing, load testing and stress testing respectively?}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 6: For what purposes would you use unit testing, load testing and stress testing respectively?}
+\endfoot
+\caption{Question 6: For what purposes would you use unit testing, load testing and stress testing respectively?}
+\label{w4_q6}
+\endlastfoot
+
+1 & unit testing to find faults in software. 
+
+\noindent Load testing to see how software performs under load. 
+
+\noindent and stress testing to see how software performs under a longer period of different loadsizes. \\ \hline
+
+2 & Unit testing to test individual software components and verify that they do what they are supposed to do.
+
+\noindent Load testing to test the availability when the system is still working correctly
+
+\noindent Stress testing to test the availability and robustness of a system when there for example are limited resources (RAM etc). \\ \hline
+
+3 & Unit testing on single units. Load and stress testing on whole systems. \\ \hline
+
+4 & if i build my system for resilience i would stress and load test. Unit test where it makes sense. \\ \hline
+
+5 & Unit testing for making sure the application works under regular circumstances. Load testing to make sure the application works under heavy usage, such as many more requests than expected. Stress testing for continued prolonged usage of the system.  \\ \hline
+
+6 & Unit testing verifies small modules in the application and helps to keep the service in an acceptable state when the application evolves.
+
+\noindent Load testing verifies the mechanisms incorporated on the system to handle large amounts of requests. This tests the capabilities of the system.
+
+\noindent Stress testing tests the break down scenarios. By stress testing, one makes sure the system react in a desired way when the system is pushed to the absolute limits. \\ \hline
+
+7 & You would unit test single services to check if the service is working as intented.
+
+\noindent Load testing to see if the system works as intended under normal or slightly above normal load
+
+\noindent Stress testing to see how the system reacts under massive load and how it recovers from the problems that arise. \\ \hline
+
+8 & Unit tests: test functionality of individual components.
+
+\noindent load testing: See how well the system 
+
+\noindent Stress testing: Stressing the system till it breaks, to see how well the sytems handles it. \\ \hline
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Unistructural} \\ 
+\end{longtable}
+\normalsize
+
+
+
+%%%%% Q7
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 7: Describe with your own words how to obtain resilience in a microservice architecture.}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 7: Describe with your own words how to obtain resilience in a microservice architecture.}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 7: Describe with your own words how to obtain resilience in a microservice architecture.}
+\endfoot
+\caption{Question 7: Describe with your own words how to obtain resilience in a microservice architecture.}
+\label{w4_q7}
+\endlastfoot
+
+1 & Having backups for everything, stopping errors from cascading by having appropriate reactions if services or the network fail, reducing or elimination single points of failure, \\ \hline
+
+2 & maintain replicas, rolling updates, circuitbreakers \\ \hline
+
+3 & implement circuit breakers and use som management system to handle replications and that stuff. \\ \hline
+
+4 & Using kubernetes load balancer alongside Docker contained microservices allows for scaling and rerouting of the system so that a higher level of resilience can be achived. \\ \hline
+
+5 & By incorporating mechanisms like circuit breakers and auto managed replications, one can increase the resilience of the system. By handling error scenarios in a smart way and have clear strategies when the system fails is necessary, and helps the services to be in the best conditions at all times. \\ \hline
+
+6 & First of all I would use a technology like Kubernetes to scale individual services easily to handle increased traffic. 
+
+\noindent I would furthermore implement some of the patterns like circuit breaker, timeouts etc. to increase the availability of the system. \\ \hline
+
+7 & By failing fast but gracefully, providing limited service instead of no service. \\ \hline
+
+8 & Make the service in many small parts, so that one service (part) can be down, and other parts still can be running. \\ \hline
+
+9 & Use some of the patterns, f.x. circuit breaker or timeout. \\ \hline
+
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Multistructural} \\ 
+\end{longtable}
+\normalsize

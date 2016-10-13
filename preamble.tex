@@ -1,0 +1,383 @@
+%!TEX root = master.tex
+%---------------------------------------------------------------------------%
+%---------------------------- PACKAGE CONTROL ------------------------------%
+%---------------------------------------------------------------------------%
+\usepackage[utf8]{inputenc} % Input encoding - Depending on editor
+\usepackage[english]{babel} % Language package
+\usepackage{fix-cm} % Fix for cm
+\usepackage[]{graphicx} % To handle pictures
+\usepackage[table,xcdraw, dvipsnames]{xcolor}
+\usepackage{tikz} % Graphical tool
+\usepackage{mathtools} % To use \eqref
+\usepackage{url} % Use of urls in the text
+\usepackage{sansmath,subfig} % Gives a warning because subfig loads caption
+\usepackage{datetime}
+\usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage{float}
+%\usepackage{epstopdf}
+\usepackage{caption}
+\usepackage[bottom]{footmisc}
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage{listings}
+\usepackage[plainpages=false,pdfpagelabels,pageanchor=false]{hyperref} % Active links in PDF
+\usepackage[sfdefault,light,condensed]{roboto}  %% Font Roboto
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm} % For including math equations, theorems, symbols, etc
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{mwe}
+\usepackage{graphbox} %loads graphicx package
+\usepackage{paralist}
+\usepackage{subfig}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+  \do\Y\do\Z}
+  
+%---------------------------------------------------------------------------%
+%---------------------------- GRAPHICS CONTROL -----------------------------%
+%---------------------------------------------------------------------------%
+% Path for graphics
+\graphicspath{{figures/}} % Image path
+
+
+%---------------------------------------------------------------------------%
+%---------------------------- COLOR CONTROL --------------------------------%
+%---------------------------------------------------------------------------%
+\definecolor{ase_blue}{RGB}{46,158,217}
+%\definecolor{ase_blue}{RGB}{10,55,136} % The ASE blue color
+\definecolor{ocre}{RGB}{243,102,25}
+\definecolor{wetAsphalt}{RGB}{52, 73, 94}
+\definecolor{cloudsColor}{RGB}{236, 240, 241}
+\definecolor{emerald}{RGB}{52, 152, 219}
+\definecolor{carrot}{RGB}{230, 126, 34}
+\definecolor{alizarin}{RGB}{231, 76, 60}
+\definecolor{emerald_green}{RGB}{46, 204, 113}
+\definecolor{darkblue}{HTML}{000080}
+\definecolor{darkgreen}{RGB}{0, 136, 0}
+\definecolor{funnygreen}{RGB}{0, 102, 102}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{mercury}{RGB}{218, 218, 218}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+
+%---------------------------------------------------------------------------%
+%---------------------------- MARGIN CONTROL -------------------------------%
+%---------------------------------------------------------------------------%
+\setlrmarginsandblock{3cm}{2.5cm}{*}
+\setulmarginsandblock{3cm}{*}{1.2}
+\checkandfixthelayout[nearest]
+\setlength{\evensidemargin}{\oddsidemargin}
+
+
+%--------------------------------------------------------------------------%
+%------------------------- PAGESTYLE - PROPERTIES -------------------------%
+%--------------------------------------------------------------------------%
+%\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+
+\makepagestyle{ase_report}
+\makeoddhead{ase_report}{}{\small\sffamily\leftmark}{}
+\makeoddfoot{ase_report}{}{}{\small\sffamily\thepage}
+
+\makeatletter
+\makepsmarks{ase_report}{%
+  \renewcommand\chaptermark[1]{%
+    \markboth{%
+      \ifnum \value{secnumdepth} > 1
+      \if@mainmatter % 
+      \@chapapp\ \thechapter. \ %
+      \fi
+      \fi
+      ##1}{}}%
+  \renewcommand\tocmark{\markboth{\contentsname}{\contentsname}}%
+  \renewcommand\lofmark{\markboth{\listfigurename}{\listfigurename}}%
+  \renewcommand\lotmark{\markboth{\listtablename}{\listtablename}}%
+  \renewcommand\bibmark{\markboth{\bibname}{\bibname}}%
+  \renewcommand\indexmark{\markboth{\indexname}{\indexname}}%
+  \renewcommand\sectionmark[1]{\markright{##1}}%
+  \renewcommand\subsectionmark[1]{\markright{##1}}%
+  \renewcommand\subsubsectionmark[1]{\markright{##1}}%
+}
+
+\copypagestyle{plain}{ase_report}
+\makeoddhead{plain}{}{}{}
+\makeoddfoot{plain}{}{}{\small\sffamily\thepage}
+
+\pagestyle{ase_report}
+\aliaspagestyle{chapter}{plain}
+
+%--------------------------------------------------------------------------%
+%--------------------- HEADING - SECTION ----------------------------------%
+%--------------------------------------------------------------------------%
+\newcommand{\ruledsec}[1]{%
+  \Large\bfseries\sffamily\raggedright #1
+  \color{ase_blue}\rule[1pt]{\textwidth}{1.0pt}} % Section with ruler
+\setsecheadstyle{\ruledsec} % Define section head style
+
+\setfloatlocations{figure}{htp}
+\setfloatlocations{table}{htp}
+
+%--------------------------------------------------------------------------%
+%--------------------- HEADING - SUBs-SECTION -----------------------------%
+%--------------------------------------------------------------------------%
+\addtocounter{secnumdepth}{2} % Depth numbering
+
+\setsubsecheadstyle{\Large\bfseries\sffamily\raggedright}
+\setsubsubsecheadstyle{\large\bfseries\sffamily\raggedright}
+
+\setsechook{\hangsecnum} % Hang the section number in margin
+\setsubsechook{\defaultsecnum} % Don't do this on the subsections
+\setsubsubsechook{\defaultsecnum}
+\setaftersecskip{5pt} % Default skip between the section and text
+
+%--------------------------------------------------------------------------%
+%------------------------- TOC - PROPERTIES -------------------------------%
+%--------------------------------------------------------------------------%
+\raggedbottomsectiontrue % The page may not be strected on page breaks
+\setsecnumdepth{subsubsection} % Set section depth in the TOC
+\maxsecnumdepth{subsubsection} % Max of section depth in the TOC
+\settocdepth{subsection} % Up to and including subsection
+
+\setlength{\cftbeforechapterskip}{1.0em plus 0.1em minus 0.1em} % Space from chapters
+%\chapterprecistoc{Text in TOC}
+
+\addto\captionsenglish{
+  \renewcommand*{\cftchaptername}{Chapter{\space}}
+  \renewcommand*{\cftfigurename}{Fig.{\space}}
+  \renewcommand*{\contentsname}{Table of Contents}
+  \renewcommand*{\abstractname}{Abstract}
+  \renewcommand*{\listfigurename}{List{\space}of{\space}Figures}
+  \renewcommand*{\listtablename}{List{\space}of{\space}Tables}
+  \renewcommand*{\appendixtocname}{Appendices}
+  \renewcommand*{\appendixpagename}{Appendices}
+}
+
+\addto\captionsdanish{
+  \renewcommand*{\cftchaptername}{\space}
+  \renewcommand*{\cftfigurename}{Fig.\space}
+  \renewcommand*{\abstractname}{Resumé}
+  \renewcommand*{\contentsname}{Indholdsfortegnelse}
+  \renewcommand*{\listfigurename}{Liste{\space}af{\space}Figurer}
+  \renewcommand*{\listtablename}{Liste{\space}af{\space}Tabeller}
+  \renewcommand*{\appendixtocname}{Appendikser}
+  \renewcommand*{\appendixpagename}{Appendikser}
+}
+%--------------------------------------------------------------------------%
+%------------------------- CHAPTER STYLE ----------------------------------%
+%--------------------------------------------------------------------------%
+\makechapterstyle{ase_chapterstyle}{
+  \setlength{\beforechapskip}{15pt}
+  \setlength{\afterchapskip}{0.5cm}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\chapnumfont}{\normalfont\sffamily\bfseries\fontsize{60}{0}\selectfont}
+  \renewcommand*{\printchapternum}{
+    \flushright
+    \begin{tikzpicture}
+      \draw[fill,color=ase_blue] (0,0) rectangle (2cm,2cm);
+      \draw[color=white] (1cm,1cm) node { \chapnumfont\thechapter };
+    \end{tikzpicture}
+  }
+  \renewcommand*{\chaptitlefont}{\normalfont\sffamily\Huge\bfseries\color{black}}
+  \renewcommand*{\printchaptertitle}[1]{%
+    \raggedright\chaptitlefont\parbox[t]{\textwidth}{\raggedright##1}}
+}
+
+\chapterstyle{ase_chapterstyle}
+
+%----------------------------------------------------------------------------------------
+% THEOREM STYLES
+%----------------------------------------------------------------------------------------
+
+\newtheoremstyle{ocrenumbox}% % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\itshape}% % Body font
+{-0.50em}% Indent amount
+{\the\thm@notefont\sffamily\noindent\color{carrot}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.0em}% Space after theorem head
+{\noindent\thmnote{\noindent\nobreakspace\the\thm@notefont\sffamily\bfseries\color{carrot}\nobreakspace\noindent#3 \\}} % Optional theorem note
+
+
+\newtheoremstyle{wetAsphaltCloud}% QUETO
+{5pt}% Space above
+{5pt}% Space below
+{\itshape}% Body font
+{0.0em} % Indent amount
+{\selectfont}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.0em}% Space after theorem head
+{\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\itshape\nobreakspace\noindent#3 - }}% Optional theorem note
+
+\newtheoremstyle{blacknumex} % DEFINITION
+{0pt}% Space above
+{0pt}% Space below
+{\selectfont}% Body font
+{}% Indent amount
+{\selectfont}% Theorem head font
+{}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\noindent\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\nobreakspace#3}}% Optional theorem note
+
+\newtheoremstyle{exerciseBox}% % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\selectfont}% % Body font
+{-0.50em}% Indent amount
+{\the\thm@notefont\sffamily\noindent\color{ase_blue}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.0em}% Space after theorem head
+{\noindent\thmnote{\noindent\nobreakspace\the\thm@notefont\sffamily\bfseries\color{ase_blue}\nobreakspace\noindent#3 \\}} % Optional theorem note
+
+
+% Defines the theorem text style for each type of theorem to one of the three styles above
+\newcounter{dummy} 
+\numberwithin{dummy}{section}
+\theoremstyle{ocrenumbox}
+\newtheorem{theoremeT}[dummy]{Theorem}
+\theoremstyle{blacknumex}
+\newtheorem{definitionT}{Definition}[section]
+\theoremstyle{wetAsphaltCloud}
+\newtheorem{corollaryT}[dummy]{Corollary}
+
+\theoremstyle{exerciseBox}
+\newtheorem{exerciseT}[dummy]{Exercise}
+
+%----------------------------------------------------------------------------------------
+% DEFINITION OF COLORED BOXES
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+
+% Theorem box
+\newmdenv[skipabove=7pt,
+skipbelow=15pt,
+linecolor=ase_blue,
+linewidth=2pt,
+innerleftmargin=12pt,
+innerrightmargin=12pt,
+innertopmargin=12pt,
+innerbottommargin=12pt,
+leftmargin=0cm,
+backgroundcolor=cloudsColor,
+rightmargin=0cm]{tBox}
+
+
+% Corollary
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=emerald,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=0pt]{dBox}  
+
+% Definition
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=wetAsphalt,
+backgroundcolor=cloudsColor,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=5pt]{cBox}  
+
+% Exercisebox box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+backgroundcolor=cloudsColor,
+linecolor=ase_blue,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+innerbottommargin=5pt]{eBox}   
+
+
+      
+
+% Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
+\newenvironment{theorem}{\begin{samepage}\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}\end{samepage}}        
+\newenvironment{definition}{\begin{samepage}\begin{cBox}\begin{definitionT}}{\end{definitionT}\end{cBox}\end{samepage}}    
+\newenvironment{citat}{\begin{samepage}\begin{dBox}\begin{corollaryT}}{\end{corollaryT}\end{dBox}\end{samepage}} 
+\newenvironment{kasse}{\begin{samepage}\begin{eBox}\begin{exerciseT}}{\end{exerciseT}\end{eBox}\end{samepage}}   
+
+
+
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{cloudsColor},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  otherkeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  %stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                     % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER FIXES
+\DeclareUnicodeCharacter{00A0}{ }
+
+
+
+%%%%% INVOICE
+
+\usepackage{fp}
+%\usepackage{ragged2e}
+\newcounter{cnt}
+\setcounter{cnt}{0}
+\def\inc{\stepcounter{cnt}\thecnt}
+\gdef\TotalHT{0}
+\newcommand{\product}[3]{%
+\inc &#1  &#2   &#3  &\FPmul\temp{#2}{#3}\FPround\temp{\temp}{2}\temp 
+%% Totalize
+\FPadd\total{\TotalHT}{\temp}%
+\FPround\total{\total}{2}%
+\global\let\TotalHT\total%
+\\ }
+\newcommand{\totalttc}{
+   \TotalHT  }

@@ -1,0 +1,68 @@
+%!TEX root = ../master.tex
+\chapter{Conclusions}
+
+\begin{theorem}
+A presentation of the lessons learned is needed in order to draw the overall conclusion of the effects of the designed learning activity and KubeCloud as a learning and research object.
+\end{theorem}
+
+%%%% HUSK AT RETTE READING GUIDE TIL NÅR BOKSEN ER UDFYLDT!!!
+\noindent
+The chapter will present the conclusions and final remarks of this present master's thesis. Many different topics and experiments have been presented. Until now we have presented the new world of rapidly changing software development and the importance of iterating fast, and the need for academia to keep up. We proposed the design of a learning activity involving a small-scale tangible cloud computing environment as a mediating object. The fundamentals of cloud computing infrastructure and architecture were presented to introduce the reader to these new concepts and provide an understanding of the important topics necessary to build and design a learning activity and a tangible cloud computing cluster. Among these topics are the movement towards service-oriented architectures and the introduction of inter-service communication. The complexity involved in building resilient, distributed systems were addressed and a definition of resilience made.
+
+
+\section{Lessons Learned}
+In this section we will describe some of the lessons learned from designing, building, and implementing KubeCloud and the corresponding learning activity.
+\subsection*{The Good}
+
+\textbf{A tangible, physical cloud computing cluster helps break down abstractions} by making them visible in a physical cluster. In Module 3 all students expressed that KubeCloud supported their learning. A student mentions:\textit{"The cluster illustrates the purpose and setup visually in a nice way. It is very hands on to work with these compared to some cloud setup where the actual servers in the cluster are hidden away"}. Furthermore, the overall evaluation of KubeCloud reported that 100\% of the students agree or strongly agree with the statement \textit{"the cluster provided me a better understanding of what cloud consists of"}. These results are in agreement with Felder and Silverman's research and our later confirming experiment on how engineering students learn. Especially in the category of active and sensing learning style preferences. \\
+
+\noindent
+\textbf{Visualization of the cluster's current state is important} in order to understand the concepts in Kubernetes. In Module 3 the students expressed how the visualization helped their understanding of the cluster management. Furthermore, the overall evaluation of KubeCloud resulted in a that 93.8\% agreed or strongly agreed with the statement: \textit{"The cluster combined with the visualizer helped me understand the concepts of the cluster"}. Our experiment on the students' learning style preferences shows that the most dominant learning style preference is the visual.\\
+
+\noindent
+\textbf{Conveying skills used by industry is important} in order to address the demand from industry. Containers and microservice architecture are entering mainstream according to a survey conducted by Nginx \cite{nginx2016future}. Furthermore, the external presenter in Module 5 discussed how they use Docker at Praqma. In addition, the presenter advertised a five-day course for students about, among other, containers and Docker to address their need for students with these skills.\\
+
+\noindent
+\textbf{A small-scale cloud computing environment is useful for research} on real devices. Cloud computing simulations introduce a number of assumptions and, in many cases, fail to encapsule concepts of the application layers. The small-scale cloud computing cluster allows for the introduction of real network faults e.g. by pulling the network cable. This allows for experimentation with resilience at infrastructure and application level in a controlled test environment. Chapter~\ref{chapter_experiment2_resilience} documented the effects of circuit breakers and the trade-off between consistency and availability. Furthermore, the effects of replication were documented in regards to recovery and fault tolerance. \\
+
+\noindent
+\textbf{Acquisition of small-scale cloud computing clusters is relatively inexpensive} and enables universities to provide cloud computing education. The total cost of acquiring eight KubeClouds were DKK 12,716.96 (USD \$1,915). Although the processing power is not comparable to real data centers, the Raspberry Pis provide sufficient processing power to convey multiple cloud computing concepts. 
+
+
+\subsection*{The Bad}
+
+\noindent
+\textbf{The seamless portability of Docker is not possible on ARM-architecture.} Throughout the course, the limitation of having to build Docker images on the Raspberry Pi (ARM architecture) has been a source of irritation among the students. Furthermore, the basic idea about Docker is blurred since the seamless portability of images cannot be accomplished. A student also points this out in the overall evaluation: \textit{"The cluster made the workshops and project more real compared to using a cloud cluster. Too bad the ARM architecture broke the seamless experience using docker"}.\\
+
+\noindent
+\textbf{The performance of the Raspberry Pi} is not impressive, and especially writing to the SD card is a hurdle. This reinforce the inconvenience with Docker because of the relatively large image sizes.\\
+
+\noindent
+\textbf{Practical issues} were encountered during the setup of the clusters in the classroom for each module. Furthermore, the location of the clusters inside the classroom were distanced from the groups because of the limitations of the network cables. This contributed to a mental barrier between the groups and the cluster, explained by one of the students as: \textit{"The cluster was for a long time "wierd thing" which we were mostly scared of braking - which led to only doing things to it described in workshops."}. \\
+
+\noindent
+\textbf{A larger data basis} would have increased the validity of the evaluations of KubeCloud. The number of responses to the weekly evaluations vary from 9 to 17. The overall evaluation consisted of 16 students' participating.
+
+
+\section{Conclusion}
+In the thesis, we have described KubeCloud and presented how to design, build, and evaluate KubeCloud and an associated learning activity. KubeCloud is a small-scale tangible cloud computing cluster built of low-cost Raspberry Pis, which allows for a practical hands-on teaching approach to cloud computing.\\
+
+\noindent
+ The benefit of a physical cloud computing cluster is the ability to inject real network faults without the limitations of simulations. This makes it possible to perform research on resilience in cloud computing e.g. microservice architectures. We have evaluated the effect of KubeCloud as a learning object in a designed learning activity lasting seven weeks. The results show that KubeCloud is a viable learning object for cloud computing educational strategies for engineering students. KubeCloud has acted as a mediating object to align the students' mental model with the real world. The students reported that visualization and hands-on experimentation improved their learning by breaking down the abstractions and making them visible in a physical cluster. The largest limitation of KubeCloud is that Docker images must be built for ARM architecture. This blurs and complicates the seamless experience of Docker. However, the benefits outweigh the limitations. \\
+
+\noindent
+The evolution of the cloud computing paradigm and the transition towards highly distributed systems calls for new teaching strategies. KubeCloud can have a significant role in future engineering teaching strategies of cloud computing.
+
+
+
+\section{Future Work - Outlook and Perspectives}
+For future work, we see the possibilities of creating a step-by-step guide (assembly kit) for universities to download and start using KubeCloud as a learning object.  We plan on open sourcing all produced materials and experiences for others to use. This makes it possible for universities to offer cloud computing courses targeting the students' preferred learning styles. The students will learn relevant skills preparing them with the required skill set demanded by the industry. This results in developers able to create solutions for the high expectations demanded by the consumers of the future. \\
+
+\noindent
+Regarding the design of the cluster, further work on stability issues can be made. Some clusters required deletion of data because students directed too much load with a load testing tool. Another area of improvement is the visualization tool since it is slow and gets unresponsive over time.\\
+
+\noindent
+To further strengthen the conclusion of this present master's thesis, a more detailed comparative study with more participants investigating the effect of using KubeCloud as a learning object would be useful. \\
+
+\noindent
+We have now presented a low-cost platform for teaching and research. The possibilities of KubeCloud's usage are endless.

@@ -1,0 +1,25 @@
+%!TEX root = ../master.tex
+\chapter{(Notes)}
+
+%MARTIN
+\input{sections/notes/crash_only}
+\input{sections/notes/criticals_services_in_the_cloud}
+\input{sections/notes/applications_resilience_on_clouds}
+\input{sections/notes/resilience_of_networked_infrastructure_systems}
+
+%KASPER
+\input{sections/notes/optimizing_quality_of_resilience_in_the_cloud_bruno_sousa}
+\input{sections/notes/system_resilience_modeling_and_enhancement_for_the_cloud_tu_xu}
+\input{sections/notes/recursive_restartability_turning_the_reboot_sledgehammer_into_a_scalpel}
+\input{sections/notes/architectural_slicing_towards_automatic_harvesting_of_architectural_prototypes}
+\input{sections/notes/a_solution_for_implementing_resilience_in_open_source_cloud_platforms}
+\input{sections/notes/microservices}
+\input{sections/notes/evaluating_the_monolithic_and_the_microservice_architecture_pattern}
+\input{sections/notes/docker}
+\input{sections/notes/resilience_benchmarking}
+\input{sections/notes/ibm_resilience_in_the_era_of_enterprise_cloud_computing}
+<<<<<<< HEAD
+\input{sections/notes/providing_dependability_and_resilience_in_the_cloud}
+=======
+\input{sections/notes/chap1_fault_tolerance_and_resilience_meanings_measures_and_assessment}
+>>>>>>> master

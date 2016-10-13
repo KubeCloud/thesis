@@ -1,0 +1,138 @@
+%!TEX root = ../../master.tex
+\subsubsection*{Week 3: Reflection}
+
+
+%%%% Q1
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 1: Describe the connection between Docker and Kubernetes}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 1: Describe the connection between Docker and Kubernetes}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 1: Describe the connection between Docker and Kubernetes}
+\endfoot
+\caption{Question 1: Describe the connection between Docker and Kubernetes}
+\label{w3_q1}
+\endlastfoot
+
+1 & Kubernetes gives the application the load balancer which makes the application scalable and rerouteable. Docker is the framework which allows us to contain our services in containers, which Kubernetes can scale. \\ \hline
+
+2 & Docker is used to pack software into containers which afterwards can be pushed to the docker hub. Kubernetes responsibility is to run the containers and distribute them among one or multiple machines in a cluster. Kubernetes can be seen as a load balancer since it makes sure to distribute the workload between the machines. \\ \hline
+
+3 & Kubernetes is a container management system that helås making your applications more resilient since it handles restarting and replications of services \\ \hline
+
+4 & Kubernetes manages docker containers. Aiming to fulfill the requirements set in Kubernetes regarding running instances, Kubernetes automatically boots up or shuts down containers. \\ \hline
+
+5 & With Docker you can pack your applications in containers. these containers can be deployed on the web. kubernetes can manage how many and where these containers are deployed.  \\ \hline
+
+6 & Docker containers is managed by Kubernetes. Kubernetes decides such things as scaling the pods which containers the docker containers. \\ \hline
+
+7 & Kubernetes manages the docker containers \\ \hline
+
+8 & Kubernetes can "host" and manage docker containers. This includes loadbalancing, communication and upgrades \\ \hline
+
+9 & Kubernetes is a framework to handle the containers created by docker. Kubernetes is set up so that it automatically relaunches faulty containers and ensures that there's always the correct amount of containers running. \\ \hline
+
+10 & Kubernetes runs the Docker containers and scales the system according to load\\ \hline
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Multistructural} \\ 
+\end{longtable}
+\normalsize
+
+
+%%%% Q2
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 2: Describe with your own words how Kubernetes orchestrates containers}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 2: Describe with your own words how Kubernetes orchestrates containers}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 2: Describe with your own words how Kubernetes orchestrates containers}
+\endfoot
+\caption{Question 2: Describe with your own words how Kubernetes orchestrates containers}
+\label{w3_q2}
+\endlastfoot
+
+1 & Kubernetes orchestrates the containers in a way such that a machine is used most effectively. It furthermore ensures that containers are run on multiple machines such that some part of an application is still working even if a machine dies. \\ \hline
+
+2 & Kubernetes starts and ends those services which the user has defined. Furthermore Kubernetes is responsible for the communication between the pods it has created \\ \hline
+
+3 & It makes replica sets of services and can handle distributing trafic based on parameters like cpu usage and memory. \\ \hline
+
+4 & Kubernetes can reroute a service/task to another available node if the node the service is currently running on goes down. Kubernetes can also be set to keep a certain amount of instances of a service alive at all times + upgrade running services with a rollout update. \\ \hline
+
+5 & Kubernetes uses the containers created by docker. It runs the application using the container, and can launch multiple instances of these, which is useful for e.g. a busy internet service, or whatever... Kubernetes always ensures that the number of container replicas is the number that it is set to. \\ \hline
+
+6 & I think Kubernetes handles containers in pods. By spawning new pods with a predefined configuration of containers, it is possible to spawn tightly coupled containers. \\ \hline
+
+7 & The different containers are arranged in pods that are independen and communicate via the "localhost network". They can also have shared storage. \\ \hline
+
+8 & Thru terminal commands or a yaml file, kubernetes manage how many and which containers are running. kubernetes is the brain behind loadbalancing. \\ \hline
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Unistructural} \\ 
+\end{longtable}
+\normalsize
+
+%%%% Q6
+\renewcommand*{\arraystretch}{1.6}
+\scriptsize
+\begin{longtable}{|p{0.3cm}|p{14.7cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF} & \textbf{Question 6: Describe with your own words the benefits and drawbacks of using a cluster management system such as Kubernetes}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF} &\textbf{Question 6: Describe with your own words the benefits and drawbacks of using a cluster management system such as Kubernetes}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Question 6: Describe with your own words the benefits and drawbacks of using a cluster management system such as Kubernetes}
+\endfoot
+\caption{Question 6: Describe with your own words the benefits and drawbacks of using a cluster management system such as Kubernetes}
+\label{w3_q6}
+\endlastfoot
+
+1 & Benefits are scaling with a lot of traffic. But if you don't no how to program it efficient enough it can be a problem. The example is updating a service. Kubernetes can do it fast, but you have to tell it to create new instances and terminate old ones after new ones are created, instead of deleting old ones before new ones are created. \\ \hline
+
+2 & The biggest benefit that i see is the feature kubernetes exposes, that helps keep the containers(apps, services etc.) alive, even if they break down.
+
+\noindent Another benefit is ofcourse the great overview of running apps.
+
+\noindent I'm not so sure about drawbacks, but there is probably going to be some overhead regarding keeping all the services and whatnot alive, and monitoring everything. \\ \hline
+
+3 & Most disadvantages are identical only using containers. It might be overkill if you only use few containers but otherwise its just better and easier \\ \hline
+
+4 & I only see advantages. Well the draw back is getting it setup. But alot of benefits obviously \\ \hline
+
+5 & The benefits are obvious due to the rolling updates being done, while also having a constant amount of services available while updating. Also the auto scaling and the "keep x alive" functionality is pretty good. The drawbacks are hard to see. \\ \hline
+
+6 & Kubernetes ensures that the system scales and provides resilience automatically. \\ \hline
+
+7 & It provides a powerful tool to manage and scale services and application in an organized manner. I don't see many drawbacks. \\ \hline
+
+8 & A huge benefit is that Kubernetes handles all the scheduling and node packaging an maintains the infrastructure and ensures that the number of replicas of a given deployment is always running even if a machine dies. 
+
+\noindent At the moment i haven't encountered any drawbacks. \\ \hline
+
+\multicolumn{2}{r}{\textbf{Evaluation:} Multistructural} \\ 
+\end{longtable}
+\normalsize
+

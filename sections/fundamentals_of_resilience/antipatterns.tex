@@ -1,0 +1,56 @@
+%!TEX root = ../../master.tex
+%\section{Antipatterns}\label{sec_antipatterns}
+%In this section we will provide a description of different antipatterns that occurs in cloud computing environment. When we use the word antipattern, we refer to potential risks that will eventually result in system failures. Software today is designed in development environments and usually tested within these environments too. In larger companies an extra quality assurance is added with a designated quality assurance department. Usually software is designed and built to pass tests such as, "The customer's first and last names are required, but the middle name is optional". These kinds of test are focused on functional requirements rather than non-functional requirements. These tests do not test for the real world in production. When the QA department passes a test, can I then say with confidence that it is ready for production? How can we test that the our system do not crash, hang, lose data, violate privacy, lose money, destroy your company, or kill customers? \\ 
+%\noindent
+%To answer these questions, we first need to analyze potential risks and things that can go wrong when running in a production environment. Michael T. Nygard describes these antipatterns in his book "Release It!"\cite{nygard2007release}. Below is a recap of potential risks, the so called Stability antipatterns.
+
+\renewcommand*{\arraystretch}{1.4}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\begin{longtable}{|p{4cm}|p{10.5cm}|} 
+\hline
+\rowcolor[HTML]{EFEFEF}\textbf{Stability antipattern} & \textbf{Description}  \\
+\hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\rowcolor[HTML]{EFEFEF}\textbf{Stability antipattern} &\textbf{Description}  \\
+\hline
+\endhead
+\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+\caption{Stability Antipatterns, Michael T. Nygaard, "Release It!"\cite{nygard2007release}}
+\endfoot
+\hline
+\caption{Stability Antipatterns, Michael T. Nygaard, "Release It!"\cite{nygard2007release}}
+\label{antipatterns}
+\endlastfoot
+\textbf{Integration Points}     & 
+Integrations points are the external services a service is using. These require an integration over the network through e.g. a socket, which introduces a stability risk. Nygard calls this \textit{"the number-one killer of systems"}.
+ \\ \hline
+\textbf{Chain Reactions}        & 
+Chain reactions happen if one service crashes and the remaining services must serve an increased load. The increased load increases the risk of another failure being triggered. \\ \hline
+\textbf{Cascading Failures}     & 
+Cascading failures happen when a service's undesired state is propagated to another service, which then again affects a third service and so on. This can take down the entire system. Cascading failures are often caused by integration points without timeouts.                                                                                                                                                                                                                                                                        \\ \hline
+\textbf{Users}                  & 
+Users can take down your system in various ways. More users lead to increased resources requirements, but there are also malicious users deliberately trying to break the system.                                                                                                                                                                                                                                                                                                         \\ \hline
+\textbf{Blocked Threads}        & 
+Blocked threads are often found near, but not limited to, integration points. Integration points can be guarded with timeouts, but blocked threads can also appear in the form of e.g. deadlocks which are harder to catch.
+\\ \hline
+\textbf{Attacks of Self-Denial} & 
+Attacks of self-denial are e.g. when special offers on a web shop are made and the traffic suddenly increases drastically. If the marketing department has not cleared this with the operations team.
+\\ \hline
+\textbf{Scaling Effects}        & 
+Scaling effects can happen when you have a many-to-one or many-to-few relationship. A database is, for instance, a case where the database can reach a client limit. Scaling effects are hard to test.                                                                                                                                                                                                                                                                                                             \\ \hline
+\textbf{Unbalanced Capacities}  & 
+Unbalanced capacities are about not being able to scale up and down dynamically. When an attack of self-denial is executed you need to be able to scale up, but when it is done you do not want to have a lot of idle resources.
+
+\noindent Since Nygard's "Release It!" was released in 2007 a lot has happened with cloud providers, virtual machines and containers that makes this a lot faster. As in 2007 you are still being billed for increased load, though.
+\\ \hline
+\textbf{Slow Responses}         & 
+Slow responses are, as mentioned, a cause for cascading failures. They can also lead to frustrated users who clicking a reload button, thereby generating even more traffic. Slow responses can furthermore lead to memory leaks and increased garbage collection.
+\\ \hline
+\textbf{Unbounded Result Sets}  & 
+Unbound result sets are when you ask for more data than you need and discard the rest. As your amount of data grows this becomes worse and lead to slow responses. 
+\end{longtable}
+
